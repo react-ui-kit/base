@@ -1,0 +1,30 @@
+@import "../variables";
+
+.input
+    display: flex
+    flex-direction: column
+    input
+        border: 2px solid $border_color
+        border-radius: 6px
+        padding: 0 18px
+        width: auto
+        height: 42px
+        background: $white
+        color: $input_color
+        margin-bottom: 21px
+        font-size: 14px
+        outline: none
+        appearance: none
+        &:disabled
+            background: $disabled_color
+            cursor: not-allowed
+        &:required
+            border-color: $required_color
+    .label
+        display: block;
+        margin-bottom: 10px;
+        padding-left: 2px;
+        font-size: 14px;
+        color: #86939E;
+        letter-spacing: 0px;
+        line-height: 14px;

@@ -1,0 +1,39 @@
+///
+/// Generates `slider thumb` content for a given element.
+///
+/// @author hetmann
+///
+/// @output
+/// ```css
+///    &::-webkit-slider-thumb {
+///        <content>
+///    }
+///    &::-moz-range-thumb {
+///        <content>
+///    }
+///    &:-ms-thumb {
+///        <content>
+///    }
+/// ```
+///
+/// @example
+///   .selector {
+///     @include slider-thumb {
+///         color: #bada55;
+///         font-weight: bold;
+///     }
+///   }
+///
+@mixin slider-thumb {
+	&::-webkit-slider-thumb {
+		@content // Chrome, Safari, Opera
+	}
+
+	&::-moz-range-thumb {
+		@content // Firefox 19+
+	}
+
+	&::-ms-thumb {
+		@content // IE 10+
+	}
+}

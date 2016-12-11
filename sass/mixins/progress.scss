@@ -1,0 +1,78 @@
+///
+/// Generates cross-browser-compatible `progress[value]` for a given element.
+///
+/// @author hetmann
+///
+/// @link http://caniuse.com/progress caniuse progress
+/// @link https://www.w3.org/wiki/HTML/Elements/progress
+///
+/// @param {String} $value
+///
+/// @output
+/// ```css
+///   ::-webkit-progress-value {
+///     background-color: <value>;
+///   }
+///
+///   ::-moz-progress-bar {
+///     background-color: <value>;
+///   }
+///
+///   ::-ms-fill {
+///     background-color: <value>;
+///   }
+/// ```
+///
+
+@mixin progress-fill($color, $radius-top-left: 4px, $radius-top-right: 4px, $radius-bottom-right: 4px, $radius-bottom-left: 4px) {
+  &[value]::-webkit-progress-value {
+    background-color: $color;
+    border-top-left-radius: $radius-top-left;
+    border-top-right-radius: $radius-top-right;
+    border-bottom-right-radius: $radius-bottom-right;
+    border-bottom-left-radius: $radius-bottom-left;
+  }
+
+  &[value]::-moz-progress-bar {
+    background-color: $color;
+    border-top-left-radius: $radius-top-left;
+    border-top-right-radius: $radius-top-right;
+    border-bottom-right-radius: $radius-bottom-right;
+    border-bottom-left-radius: $radius-bottom-left;
+  }
+
+  // IE10+, Microsoft Edge
+  &[value]::-ms-fill {
+    background-color: $color;
+    border-top-left-radius: $radius-top-left;
+    border-top-right-radius: $radius-top-right;
+    border-bottom-right-radius: $radius-bottom-right;
+    border-bottom-left-radius: $radius-bottom-left;
+  }
+}
+
+@mixin progress-unfill($color, $radius-top-left: 4px, $radius-top-right: 4px, $radius-bottom-right: 4px, $radius-bottom-left: 4px) {
+  &[value]::-webkit-progress-bar {
+    background-color: $color; //rgba($color, 0.3);
+    border-top-left-radius: $radius-top-left;
+    border-top-right-radius: $radius-top-right;
+    border-bottom-right-radius: $radius-bottom-right;
+    border-bottom-left-radius: $radius-bottom-left;
+  }
+
+  &[value] {
+    background-color: $color; //rgba($color, 0.3);
+    border-top-left-radius: $radius-top-left;
+    border-top-right-radius: $radius-top-right;
+    border-bottom-right-radius: $radius-bottom-right;
+    border-bottom-left-radius: $radius-bottom-left;
+  }
+
+  base::-moz-progress-bar {
+    background-color: $color; //rgba($color, 0.3);
+    border-top-left-radius: $radius-top-left;
+    border-top-right-radius: $radius-top-right;
+    border-bottom-right-radius: $radius-bottom-right;
+    border-bottom-left-radius: $radius-bottom-left;
+  }
+}

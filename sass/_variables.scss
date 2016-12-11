@@ -1,0 +1,61 @@
+
+// container
+$container_width: 1200px;
+$gutter: 1%;
+
+// colors
+$white: #FFFFFF;
+$black: #000000;
+$active_color: #7DC855;
+$default_color: #E1E8EE;
+$accent_color: #838CC7;
+$primary_color: #53BBB3;
+$required_color: #FFE69A;
+$disabled_color: #F2F6F9;
+$input_color: #5E6977;
+$link_color: #358ED7;
+$shadow_color: #B6BEC7;
+
+// text colors
+$text_color: #43484C;
+
+$success_color: $active_color;
+$info_color: #45A1CC;
+$warning_color: #F7C174;
+$error_color: #EC6460;
+
+$indicator_color: #BDC6CF;
+$pointer_default_color: #BDC6CF;
+$pointer_active_color: $info_color;
+$border_color: $default_color;
+$dropdown_disabled_color: #F0F4F7;
+
+// button
+$button_border_color: $border_color;
+$button_text_color: $link_color;
+$button_active_color: $active_color;
+$button_action_color: #86939E;
+
+$table_head_color: #86939E;
+$table_body_color: #43484D;
+
+$header_text_color: #86939E;
+$header_logo_color: #43484D;
+
+$menu_text_color: #5E6977;
+$submenu_text_color: #86939E;
+
+$label_text_color: #86939E;
+
+// checkbox, radio & switch
+$checkbox_background_color: $default_color;
+$switch_background_color: $default_color;
+$switch_pointer_default: $pointer_default_color;
+$switch_pointer_active: $pointer_active_color;
+
+// progress
+$progress_background_color: #D8D8D8;
+$progress_success_color: $success_color;
+$progress_info_color: $info_color;
+$progress_warning_color: $warning_color;
+$progress_error_color: $error_color;

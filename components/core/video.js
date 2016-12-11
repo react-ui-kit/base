@@ -1,0 +1,178 @@
+import React, { PureComponent } from 'react';
+
+import Slider from './slider';
+import 'sass/core/video';
+
+export default class Video extends PureComponent {
+  static propTypes = {
+    name: React.PropTypes.string
+  }
+
+  static defaultProps = {
+    className: '',
+    src: undefined,
+    type: 'video/mp4',
+    width: null,
+    height: null,
+    autoplay: false,
+    controls: true
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPlaying: props.autoplay ? true : false,
+      video: {
+        currentTime: 0,
+        duration: null,
+        volume: 1,
+        width: props.width,
+        height: props.height
+      }
+    };
+  }
+
+  handleClick() {
+    let {isPlaying} = this.state;
+
+    if (isPlaying) this.video.pause();
+    if (!isPlaying) this.video.play();
+
+    switch (isPlaying) {
+      case true:
+        isPlaying = false;
+        this.video.pause();
+        break;
+      default:
+        isPlaying = true;
+        this.video.play();
+        break;
+    }
+
+    this.setState({
+      isPlaying
+    });
+
+    this.handleVideoUpdate.bind(this)();
+  }
+
+  handleFullScreen() {
+    const video = this.video;
+
+    this.handleVideoUpdate.bind(this)();
+
+    return video.requestFullscreen ? video.requestFullscreen() :
+      video.msRequestFullscreen ? video.msRequestFullscreen() :
+      video.mozRequestFullscreen ? video.mozRequestFullscreen() :
+      video.webkitRequestFullscreen ? video.webkitRequestFullscreen() :
+      false;
+  }
+
+  handleVideoUpdate() {
+    let {video} = this.state;
+    const videoBounds = this.video.getBoundingClientRect();
+
+    video = {
+      currentTime: this.video.currentTime,
+      duration: this.video.duration,
+      volume: this.video.volume,
+      width: videoBounds.width,
+      height: videoBounds.height
+    };
+
+    this.setState({
+      video: video
+    });
+
+    // console.log('handleVideoUpdate', video);
+  }
+
+  handleVideoSeek(time) {
+    let {video} = this.state;
+
+    video.currentTime = time;
+
+    this.setState({video: video});
+    this.video.currentTime = time;
+  }
+
+  componentDidMount() {
+    this.video.oncanplay = ({...rest}) => {
+      this.handleVideoUpdate.bind(this)();
+    };
+
+    this.video.ontimeupdate = ({...rest}) => {
+      this.handleVideoUpdate.bind(this)();
+    };
+
+    this.video.onended = ({...rest}) => {
+      this.setState({
+        isPlaying: false
+      });
+    };
+  }
+
+  renderControls() {
+    const {controls} = this.props;
+    const {video, isPlaying} = this.state;
+
+    if (!controls) return null;
+    if (!video.width) return null;
+
+    const time = {
+      current: parseInt(video.currentTime, 10),
+      total: parseInt(video.duration, 10)
+    };
+
+    const hhmmss = (digit) => {
+      const h = Math.floor(Number(digit) / 3600);
+      const m = Math.floor(Number(digit) % 3600 / 60);
+      const s = Math.floor(Number(digit) % 3600 % 60);
+      return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
+    };
+
+    return (
+      <section className={`controls${isPlaying ? ' is-playing' : ''}`} style={{width: `${video.width}px`}}>
+        <Slider
+          success
+          min={0}
+          step={0.00001}
+          max={video.duration}
+          value={video.currentTime}
+          onChange={(value) => this.handleVideoSeek(value)} />
+          <div className={'buttons'}>
+            <span className={!isPlaying ? 'play' : 'pause'} onClick={this.handleClick.bind(this)} />
+            {/*<span className={'volume'} />*/}
+            <span className={'time'}>{hhmmss(time.current)} / {hhmmss(time.total)}</span>
+            <span className={'fullscreen'} onClick={this.handleFullScreen.bind(this)} />
+          </div>
+      </section>
+    );
+  }
+
+  render() {
+    const {children, className, src, type, width, height, controls, autoplay, ...rest} = this.props;
+    const source = src && type ? <source src={src} type={type} /> : null;
+
+    return (
+      <section className={'video'}>
+        <video
+          preload={'auto'}
+          autoPlay={autoplay}
+          controls={!controls}
+          width={width}
+          height={height}
+          ref={(_v) => (this.video = _v)}
+          onClick={this.handleClick.bind(this)}
+          className={`${className}`} {...rest}>
+          {source}
+          {children}
+        </video>
+        {this.renderControls.bind(this)()}
+      </section>
+    );
+  }
+}
+
+// Current frame image
+// More info: http://stackoverflow.com/questions/19175174/capture-frames-from-video-with-html5-and-javascript
