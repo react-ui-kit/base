@@ -15,10 +15,10 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const {children, className, ...rest} = this.props;
-
+    const {children, center, className, ...rest} = this.props;
+    const isCenter = center ? ' center' : '';
     return (
-      <header className={`header ${className}`} {...rest}>{children}</header>
+      <header className={`header${isCenter} ${className}`} {...rest}>{children}</header>
     );
   }
 }

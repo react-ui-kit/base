@@ -18,9 +18,9 @@ export default class Text extends PureComponent {
   render() {
     const {children, className, uppercase, lowercase, capitalize, type, h1, h2, h3, h4, h5, h6, ...rest} = this.props;
     const TextTag = h1 ? 'h1' : h2 ? 'h2' : h3 ? 'h3' : h4 ? 'h4' : h5 ? 'h5' : h6 ? 'h6' : `${type}`;
-    const TextStyle = uppercase ? 'uppercase' : lowercase ? 'lowercase' : capitalize ? 'capitalize' : '';
+    const TextStyle = uppercase ? ' uppercase' : lowercase ? ' lowercase' : capitalize ? ' capitalize' : '';
     return (
-        <TextTag className={`text ${TextStyle} ${className}`} {...rest}>{children}</TextTag>
+        <TextTag className={`text${TextStyle} ${className}`} {...rest}>{children}</TextTag>
     );
   }
 }

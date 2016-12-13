@@ -1,16 +1,17 @@
 @import "../variables";
 
 .block
-	flex-direction: column
 	flex-wrap: wrap
 	justify-content: flex-start
-	align-content: flex-start
-	align-items: flex-start
 	flex: 0 1 auto
 	width: auto
 	height: auto
 	box-sizing: border-box
 	-webkit-box-flex: 0
+	&.column
+		flex-direction: column
+	&.row
+		flex-direction: row
 	&.card
 		box-shadow: 0px 0px 3px 0px rgba($black, 0.10)
 		border-radius: 6px
@@ -35,8 +36,8 @@
 		flex-direction: row
 	&.center
 		align-content: center
+		text-align: center
 	&.middle
 		@extend .center
 		justify-content: center
-		align-content: center
 		align-items: center
