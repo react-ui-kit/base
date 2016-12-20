@@ -3,7 +3,10 @@ import 'sass/core/input';
 
 export default class Input extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    type: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
+    label: React.PropTypes.string
   }
 
   static defaultProps = {
@@ -15,14 +18,29 @@ export default class Input extends PureComponent {
 
   constructor(props) {
     super(props);
+    this.renderInput = this.renderInput.bind(this);
+  }
+
+  renderInput() {
+    const {children, type, placeholder, className, ...rest} = this.props;
+
+    if (type && type === 'textarea') {
+      return (
+        <textarea placeholder={placeholder} className={`${className}`} {...rest}>{children}</textarea>
+      );
+    }
+
+    return (
+      <input type={type} placeholder={placeholder} className={`${className}`} {...rest}>{children}</input>
+    );
   }
 
   render() {
-    const {children, type, label, placeholder, className, ...rest} = this.props;
+    const { label } = this.props;
     return (
       <label className={'input'}>
         {label ? <span className={'label'}>{label}</span> : ''}
-        <input type={type} placeholder={placeholder} className={`${className}`} {...rest}>{children}</input>
+        {this.renderInput()}
       </label>
     );
   }

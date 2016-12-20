@@ -3,7 +3,10 @@ import 'sass/core/tags';
 
 export default class Tag extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    label: React.PropTypes.string,
+    accent: React.PropTypes.bool,
+    primary: React.PropTypes.bool
   }
 
   static defaultProps = {
@@ -11,10 +14,6 @@ export default class Tag extends PureComponent {
     label: '',
     accent: undefined,
     primary: undefined
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

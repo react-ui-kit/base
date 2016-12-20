@@ -3,7 +3,13 @@ import 'sass/navigation/steps';
 
 export default class Steps extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string,
+    className: React.PropTypes.string,
+    steps: React.PropTypes.number,
+    current: React.PropTypes.number,
+    accent: React.PropTypes.bool,
+    primary: React.PropTypes.bool,
+    large: React.PropTypes.bool,
+    controls: React.PropTypes.bool
   }
 
   static defaultProps = {

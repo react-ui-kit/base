@@ -3,15 +3,13 @@ import 'sass/navigation/list';
 
 export default class Header extends React.Component {
   static propTypes = {
-    name: React.PropTypes.string,
+    className: React.PropTypes.string,
+    center: React.PropTypes.bool,
+    right: React.PropTypes.bool
   }
 
   static defaultProps = {
     className: '',
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   renderItems() {

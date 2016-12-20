@@ -11,15 +11,29 @@ import Progress from 'components/charts/progress';
 import Menu from 'components/navigation/menu';
 import Pagination from 'components/navigation/pagination';
 
+import Login from 'components/forms/login';
+import SignUp from 'components/forms/signup';
+import Contact from 'components/forms/contact';
+import Subscribe from 'components/forms/subscribe';
+import Shipping from 'components/forms/shipping';
+
 // country list for DropDown options example
 import Countries from 'countries';
+import Regions from 'regions';
 
 export default class Demo extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      regions: Regions[Countries[0].value] || []
     };
+  }
+
+  handleCountryChange(countryID) {
+    this.setState({
+      regions: Regions[countryID]
+    });
   }
 
   toggleModal() {
@@ -30,7 +44,7 @@ export default class Demo extends PureComponent {
   }
 
   render() {
-    const {showModal} = this.state;
+    const { showModal } = this.state;
 
     return (
       <Container>
@@ -276,6 +290,87 @@ export default class Demo extends PureComponent {
               <br />
               <Pagination pages={10} large controls />
             </Block>
+          </Tab>
+        </Tabs>
+
+        <h5>Forms</h5>
+        <Tabs componentUpdate>
+          <Tab label={'Login'}>
+            <Login
+              title='Login'
+              description='Complete the form below to login'
+              onLogin={x => console.log('onLogin', x)}>
+              <Input type={'email'} placeholder={'Email'} />
+              <Input type={'password'} placeholder={'Password'} />
+              <Block row>
+                <Checkbox name='radio' label={'Remember me'} />
+                <a href='#password'>Forgot password</a>
+              </Block>
+            </Login>
+          </Tab>
+          <Tab label={'SignUp'}>
+            <SignUp
+              title='SignUp'
+              signupText='Create free account'
+              description='Complete the form below to create a free account'
+              onSignUp={x => console.log('onSignUp', x)}>
+              <Input type={'email'} placeholder={'Email'} />
+              <Input type={'password'} placeholder={'Password'} />
+              <Input type={'password'} placeholder={'Confirm password'} />
+              <Block row>
+                <Checkbox name='radio' label={'Terms & Conditions'} />
+                <Switch className={'right'} onLabel={'Female'} offLabel={'Male'} />
+              </Block>
+            </SignUp>
+          </Tab>
+          <Tab label={'Contact Us'}>
+            <Contact
+              title='Contact Us'
+              contactText='Send'
+              description='Complete the form below to create a free account'
+              onContact={x => console.log('onSignUp', x)}>
+              <Input type={'text'} placeholder={'Name'} />
+              <Input type={'email'} placeholder={'Email address'} />
+              <Input type={'textarea'} placeholder={'Message'} />
+              <Block column>
+                <Checkbox name='radio' label={'Terms & Conditions'} />
+              </Block>
+            </Contact>
+          </Tab>
+          <Tab label={'Subscribe'}>
+            <Subscribe
+              accent
+              subscribeText='Subscribe'
+              onSubscribe={x => console.log('onSignUp', x)}>
+              <Block middle>
+                <Text h3>Subscribe</Text>
+                <Text h5>Get the day’s top news stories delivered to your inbox</Text>
+              </Block>
+              <Input type={'email'} placeholder={'Enter your e-mail here'} />
+            </Subscribe>
+          </Tab>
+          <Tab label={'Shipping'}>
+            <Shipping>
+              <Text h5>Shipping address</Text>
+              <Block row>
+                <Input label='First name' />
+                <Input label='Last name' />
+              </Block>
+              <Block row>
+                <Input label='Address' />
+              </Block>
+              <Block row>
+                <Input label='City' />
+              </Block>
+              <Block row>
+                <Input label='Zip/Postal' />
+                <Input label='Phone' />
+              </Block>
+              <Block row>
+                <DropDown label={'Country'} options={Countries} onChange={country => this.handleCountryChange(country)}/>
+                <DropDown label={'State/Province'} options={this.state.regions}/>
+              </Block>
+            </Shipping>
           </Tab>
         </Tabs>
       </Container>

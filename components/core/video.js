@@ -5,7 +5,13 @@ import 'sass/core/video';
 
 export default class Video extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    src: React.PropTypes.string,
+    type: React.PropTypes.string,
+    width: React.PropTypes.number,
+    height: React.PropTypes.number,
+    autoplay: React.PropTypes.bool,
+    controls: React.PropTypes.bool
   }
 
   static defaultProps = {

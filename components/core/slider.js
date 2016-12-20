@@ -4,7 +4,17 @@ import 'sass/core/slider';
 
 export default class Slider extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    type: React.PropTypes.string,
+    name: React.PropTypes.string,
+    min: React.PropTypes.number,
+    max: React.PropTypes.number,
+    value: React.PropTypes.number,
+    showCounter: React.PropTypes.bool,
+    success: React.PropTypes.bool,
+    info: React.PropTypes.bool,
+    warning: React.PropTypes.bool,
+    error: React.PropTypes.bool
   }
 
   static defaultProps = {

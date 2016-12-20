@@ -3,12 +3,17 @@ import 'sass/core/dropdown';
 
 export default class DropDown extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    options: React.PropTypes.array,
+    label: React.PropTypes.string,
+    disabled: React.PropTypes.bool
   }
 
   static defaultProps = {
     className: '',
-    options: []
+    options: [],
+    onChange: undefined
   }
 
   constructor(props) {
@@ -17,12 +22,23 @@ export default class DropDown extends PureComponent {
       selected: props.selected || 0,
       visible: false
     };
+
+    this.getBottomPosition = this.getBottomPosition.bind(this);
   }
 
   handleSelect(optionValue) {
+    const { onChange } = this.props;
     this.setState({
       selected: optionValue
     });
+    if (onChange) onChange(optionValue);
+  }
+
+  getBottomPosition() {
+    if (!this.dropdown) return 0;
+
+    // +20px margin top & bottom
+    return window.innerHeight - (this.dropdown.getBoundingClientRect().bottom + 20);
   }
 
   renderSelect() {
@@ -32,7 +48,7 @@ export default class DropDown extends PureComponent {
     const { options, ...rest } = props;
     delete props.options;   // remove private props
     delete rest.multiple;   // disabled until multiple feature is done
-    delete rest.onClick;
+    delete rest.onChange;
     delete rest.style;
 
     options.map((option, index) => {
@@ -74,20 +90,26 @@ export default class DropDown extends PureComponent {
       }
     });
 
+    if (list.size === 0) return null;
+
+    const positionTop = this.getBottomPosition() < 0;
+
     return (
-      <ul className={`list${visible ? ' visible' : ''}`}>{list}</ul>
+      <ul className={`list${visible ? ' visible' : ''}${positionTop ? ' top' : ''}`}>{list}</ul>
     );
   }
 
   render() {
     let props = Object.assign({}, this.props);
     delete props.options;   // remove protected props
-    const {className, ...rest} = props;
+    const {className, label, disabled, ...rest} = props;
 
     return (
-      <label className={`dropdown ${className}`} {...rest}>
+      <label className={`dropdown ${className}`} ref={(c) => {this.dropdown = c;}} {...rest}>
+        {label ? <span className={'label'}>{label}</span> : null}
         {this.renderSelect()}
         {this.renderList()}
+        {!disabled ? <span className={'carot'} /> : null}
       </label>
     );
   }

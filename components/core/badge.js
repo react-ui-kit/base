@@ -3,15 +3,13 @@ import 'sass/core/badge';
 
 export default class Badge extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    round: React.PropTypes.bool,
+    border: React.PropTypes.bool
   }
 
   static defaultProps = {
     className: null
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   getClassNames() {

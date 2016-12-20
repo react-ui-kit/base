@@ -10,7 +10,10 @@ const MenuItem = props => {
 
 export default class Menu extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    open: React.PropTypes.bool,
+    submenu: React.PropTypes.bool,
+    title: React.PropTypes.string
   }
 
   static defaultProps = {

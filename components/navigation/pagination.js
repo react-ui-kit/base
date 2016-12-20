@@ -3,7 +3,14 @@ import 'sass/navigation/pagination';
 
 export default class Pagination extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    pages: React.PropTypes.number,
+    current: React.PropTypes.number,
+    controls: React.PropTypes.bool,
+    disabled: React.PropTypes.bool,
+    accent: React.PropTypes.bool,
+    primary: React.PropTypes.bool,
+    large: React.PropTypes.bool
   }
 
   static defaultProps = {

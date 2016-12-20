@@ -6,7 +6,17 @@ import 'sass/core/range';
 
 export default class Range extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    type: React.PropTypes.string,
+    name: React.PropTypes.string,
+    min: React.PropTypes.number,
+    max: React.PropTypes.number,
+    value: React.PropTypes.number,
+    showCounter: React.PropTypes.bool,
+    success: React.PropTypes.bool,
+    info: React.PropTypes.bool,
+    warning: React.PropTypes.bool,
+    error: React.PropTypes.bool
   }
 
   static defaultProps = {
@@ -45,8 +55,6 @@ export default class Range extends PureComponent {
       rangeMinValue: rangeMinValue,
       rangeMaxValue: rangeMaxValue
     });
-
-    // console.log('handleChange', {rangeMinValue, rangeMaxValue, type});
 
     return onChange ? onChange({minValue: rangeMinValue, maxValue: rangeMaxValue}) : this;
   }

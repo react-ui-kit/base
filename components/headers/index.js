@@ -3,15 +3,12 @@ import 'sass/headers/header';
 
 export default class Header extends React.Component {
   static propTypes = {
-    name: React.PropTypes.string,
+    className: React.PropTypes.string,
+    center: React.PropTypes.bool
   }
 
   static defaultProps = {
-    className: '',
-  }
-
-  constructor(props) {
-    super(props);
+    className: ''
   }
 
   render() {

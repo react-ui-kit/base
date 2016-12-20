@@ -20,6 +20,10 @@
         font-size: 16px
         line-height: 25px
 a
+    text-decoration: none
+    color: $link_color
+    &:hover
+        text-decoration: underline
     &.text
         text-decoration: none
         color: inherit

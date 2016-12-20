@@ -3,7 +3,15 @@ import 'sass/core/quantity';
 
 export default class Quantity extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
+    type: React.PropTypes.string,
+    min: React.PropTypes.number,
+    max: React.PropTypes.number,
+    value: React.PropTypes.number,
+    step: React.PropTypes.number,
+    editable: React.PropTypes.bool,
+    onChange: React.PropTypes.func
   }
 
   static defaultProps = {
@@ -43,8 +51,6 @@ export default class Quantity extends PureComponent {
 
     if (quantity < min) { quantity = min; }
     if (quantity > max) { quantity = max; }
-
-    console.log('changeQuantity', {type, quantity});
 
     this.setState({
       quantity: quantity

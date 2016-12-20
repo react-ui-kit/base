@@ -3,7 +3,11 @@ import 'sass/core/tabs';
 
 export default class Tabs extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    componentUpdate: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
+    onTouchStart: React.PropTypes.func,
+    active: React.PropTypes.number
   }
 
   static defaultProps = {

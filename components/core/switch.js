@@ -3,9 +3,10 @@ import 'sass/core/switch';
 
 export default class Switch extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string,
+    className: React.PropTypes.string,
     onLabel: React.PropTypes.string,
-    offLabel: React.PropTypes.string
+    offLabel: React.PropTypes.string,
+    type: React.PropTypes.string
   }
 
   static defaultProps = {
@@ -13,10 +14,6 @@ export default class Switch extends PureComponent {
     onLabel: '',
     offLabel: '',
     type: 'checkbox'
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

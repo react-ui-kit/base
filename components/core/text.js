@@ -3,16 +3,22 @@ import 'sass/core/text';
 
 export default class Text extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    type: React.PropTypes.string,
+    uppercase: React.PropTypes.bool,
+    lowercase: React.PropTypes.bool,
+    capitalize: React.PropTypes.bool,
+    h1: React.PropTypes.bool,
+    h2: React.PropTypes.bool,
+    h3: React.PropTypes.bool,
+    h4: React.PropTypes.bool,
+    h5: React.PropTypes.bool,
+    h6: React.PropTypes.bool
   }
 
   static defaultProps = {
     className: '',
     type: 'span'
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

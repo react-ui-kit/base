@@ -3,16 +3,13 @@ import 'sass/core/tabs';
 
 export default class Tab extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    active: React.PropTypes.bool
   }
 
   static defaultProps = {
     className: '',
     active: false
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

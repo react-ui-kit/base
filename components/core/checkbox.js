@@ -3,18 +3,15 @@ import 'sass/core/checkbox';
 
 export default class Checkbox extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string,
-    label: React.PropTypes.string
+    className: React.PropTypes.string,
+    label: React.PropTypes.string,
+    type: React.PropTypes.string
   }
 
   static defaultProps = {
     className: '',
     label: '',
     type: 'checkbox'
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

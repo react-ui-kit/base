@@ -3,7 +3,11 @@ import 'sass/core/modal';
 
 export default class Modal extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string,
+    title: React.PropTypes.string,
+    open: React.PropTypes.bool,
+    onOpen: React.PropTypes.func,
+    onClose: React.PropTypes.func
   }
 
   static defaultProps = {

@@ -3,15 +3,11 @@ import 'sass/core/table';
 
 export default class Table extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string
+    className: React.PropTypes.string
   }
 
   static defaultProps = {
     className: ''
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

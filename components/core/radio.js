@@ -3,17 +3,13 @@ import 'sass/core/radio';
 
 export default class Radio extends PureComponent {
   static propTypes = {
-    name: React.PropTypes.string,
+    className: React.PropTypes.string,
     label: React.PropTypes.string
   }
 
   static defaultProps = {
     className: '',
     label: ''
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {

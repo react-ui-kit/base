@@ -3,15 +3,13 @@ import 'sass/core/container';
 
 export default class Block extends PureComponent {
   static propTypes = {
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    fluid: React.PropTypes.bool
   }
 
   static defaultProps = {
-    className: ''
-  }
-
-  constructor(props) {
-    super(props);
+    className: '',
+    fluid: false
   }
 
   render() {

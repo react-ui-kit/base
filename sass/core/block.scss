@@ -1,9 +1,8 @@
 @import "../variables";
 
 .block
+	display: flex
 	flex-wrap: wrap
-	justify-content: flex-start
-	flex: 0 1 auto
 	width: auto
 	height: auto
 	box-sizing: border-box
@@ -12,6 +11,8 @@
 		flex-direction: column
 	&.row
 		flex-direction: row
+	& > .button, .checkbox, .dropdown, .input, .modal, .quantity, .range, .slider, .switch, .table
+		flex: 1 1 8.33% // 12 column grid
 	&.card
 		box-shadow: 0px 0px 3px 0px rgba($black, 0.10)
 		border-radius: 6px
