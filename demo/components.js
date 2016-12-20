@@ -363,12 +363,17 @@ export default class Demo extends PureComponent {
                 <Input label='City' />
               </Block>
               <Block row>
+                <DropDown label={'Country'} options={Countries} onChange={country => this.handleCountryChange(country)}/>
+                <DropDown label={'State/Province'} options={this.state.regions}/>
+              </Block>
+              <Block row>
                 <Input label='Zip/Postal' />
                 <Input label='Phone' />
               </Block>
+              <p> </p>
               <Block row>
-                <DropDown label={'Country'} options={Countries} onChange={country => this.handleCountryChange(country)}/>
-                <DropDown label={'State/Province'} options={this.state.regions}/>
+                <Button style={{marginRight: '10%'}}>Cancel</Button>
+                <Button className={'active'}>Continue</Button>
               </Block>
             </Shipping>
           </Tab>
