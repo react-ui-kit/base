@@ -370,7 +370,7 @@ export default class Demo extends PureComponent {
                 <Input label='Zip/Postal' />
                 <Input label='Phone' />
               </Block>
-              <p> </p>
+              <p />
               <Block row>
                 <Button style={{marginRight: '10%'}}>Cancel</Button>
                 <Button className={'active'}>Continue</Button>
