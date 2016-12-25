@@ -143,9 +143,9 @@ export default class Demo extends PureComponent {
             <Table>
               <thead>
                 <tr>
-                  <th>Symbol</th>
-                  <th>Company name</th>
-                  <th>Last</th>
+                  <th draggable>Symbol</th>
+                  <th draggable>Company name</th>
+                  <th draggable>Last</th>
                   <th>Change</th>
                   <th>Change %</th>
                   <th>High</th>
@@ -154,13 +154,13 @@ export default class Demo extends PureComponent {
               </thead>
               <tbody>
                 <tr>
-                  <th>AGTK</th>
-                  <th>Agritek Holdings Inc.</th>
-                  <th>0.03</th>
-                  <th>+0.00</th>
-                  <th>+2.45</th>
-                  <th>0.04</th>
-                  <th>0.02</th>
+                  <td>AGTK</td>
+                  <td>Agritek Holdings Inc.</td>
+                  <td>0.03</td>
+                  <td>+0.00</td>
+                  <td>+2.45</td>
+                  <td>0.04</td>
+                  <td>0.02</td>
                 </tr>
                 <tr>
                   <th>AKAM</th>

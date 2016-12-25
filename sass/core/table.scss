@@ -19,6 +19,9 @@
 			line-height: 30px
 			text-align: left
 			border-bottom: 1px solid $default_color
+			&[draggable]
+				cursor: move
+				cursor: grab
 			&:first-child
 				padding-left: 10px
 	tbody
