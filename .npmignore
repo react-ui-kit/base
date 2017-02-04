@@ -2,7 +2,7 @@ build/
 components/
 demo/
 sass/
-index.js
+./index.js
 yarn.lock
 # re-include lib files
 !lib/
