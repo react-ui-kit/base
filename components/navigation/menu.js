@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import 'sass/navigation/menu';
 
 const MenuItem = props => {
   const {children, className, submenu, ...rest} = props;

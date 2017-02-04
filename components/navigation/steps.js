@@ -15,19 +15,18 @@ export default class Steps extends PureComponent {
   static defaultProps = {
     className: '',
     steps: 5,
-    current: 1,
+    current: 1
   }
 
   constructor(props) {
     super(props);
     this.state = {
       currentStep: props.current
-    }
+    };
   }
 
   handleCurrentStep(page) {
     const {steps} = this.props;
-    const {currentStep} = this.state;
     const nextPage = page < 1 ? 1 : page > steps ? steps : page;
 
     this.setState({currentStep: nextPage});
@@ -40,13 +39,13 @@ export default class Steps extends PureComponent {
     const isLarge = large ? ' large ' : '';
     let pagination = [];
 
-    for (let i=1; i<=steps; i++) {
+    for (let i = 1; i <= steps; i++) {
       const isActive = i <= currentStep ? ' active' : '';
       pagination.push(
         <li key={`step-${i}`}
           className={`step${isActive}${colors}${isLarge}`}
           onClick={this.handleCurrentStep.bind(this, i)} />
-      )
+      );
     }
 
     return pagination;
@@ -58,8 +57,8 @@ export default class Steps extends PureComponent {
 
     if (controls) {
       return (
-        <li className={'prev'} onClick={this.handleCurrentStep.bind(this, (currentStep-1))} />
-      )
+        <li className={'prev'} onClick={this.handleCurrentStep.bind(this, (currentStep - 1))} />
+      );
     }
 
     return null;
@@ -72,8 +71,8 @@ export default class Steps extends PureComponent {
 
     if (controls) {
       return (
-        <li className={'next'} onClick={this.handleCurrentStep.bind(this, (currentStep+1))} />
-      )
+        <li className={'next'} onClick={this.handleCurrentStep.bind(this, (currentStep + 1))} />
+      );
     }
 
     return null;
