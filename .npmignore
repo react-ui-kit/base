@@ -1,0 +1,6 @@
+build/
+components/
+demo/
+sass/
+# re-include lib files
+!lib/
