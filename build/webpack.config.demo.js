@@ -3,57 +3,73 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 
-const sassLoaders = [
-  'css-loader',
-  'postcss-loader',
-  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname)
-]
-
 const config = {
   entry: {
     'demo': ['./demo/components'],
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js$/,
+        test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader']
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
-      },
-      {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                  plugins: () => [
+                      autoprefixer({
+                        browsers: ['last 2 versions']
+                      })
+                  ]
+              }
+            },
+            {
+              loader: 'sass-loader',
+              query: {
+                indentedSyntax: 'sass',
+                sourceMap: false,
+                includePaths: path.resolve(__dirname)
+              }
+            }
+          ],
+        })
       }
-    ],
-    preLoaders: [
-      {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
-    ],
+      /***
+      ,
+      {
+        test: /\.jsx?$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+      ***/
+    ]
   },
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   output: {
     filename: '[name].js',
     path: path.join(__dirname, '../dist'),
-    publicPath: '/dist'
+    publicPath: '/dist',
+    library: '[name]',
+    libraryTarget: 'umd'
   },
   plugins: [
-    new ExtractTextPlugin('[name].css', {allChunks: false}),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: false
+    })
   ],
   resolve: {
-    modulesDirectories: ["node_modules", ".", "components", "sass"],
-    extensions: ['', '.js', '.scss', '.less', '.css'],
-    root: [
-      __dirname
-    ]
+    extensions: ['.js', '.scss'],
+    modules: [path.join(__dirname), "node_modules", ".", "demo", "lib", "components", "sass"]
   }
 }
 

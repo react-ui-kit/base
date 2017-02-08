@@ -3,12 +3,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 
-const sassLoaders = [
-  'css-loader',
-  'postcss-loader',
-  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname)
-]
-
 const config = {
   entry: {
     // core components
@@ -29,6 +23,7 @@ const config = {
     'core/tabs':      ['components/core/tabs', 'sass/core/tabs.scss'],
     'core/tags':      ['components/core/tags', 'sass/core/tags.scss'],
     'core/video':     ['components/core/video', 'sass/core/video.scss'],
+    'core/':          ['components/core/index'],
     
     // charts components
     'charts/progress': ['components/charts/progress', 'sass/charts/progress.scss'],
@@ -41,31 +36,55 @@ const config = {
     '.':  ['components/index']
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
-      },
-      {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                  plugins: () => [
+                      autoprefixer({
+                        browsers: ['last 2 versions']
+                      })
+                  ]
+              }
+            },
+            {
+              loader: 'sass-loader',
+              query: {
+                indentedSyntax: 'sass',
+                sourceMap: false,
+                includePaths: path.resolve(__dirname)
+              }
+            }
+          ],
+        })
+      },
+      {
+        test: /\.js[x]?$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
       }
-    ],
-    preLoaders: [
-      {test: /\.js[x]?$/, exclude: /node_modules/, loader: 'eslint-loader'}
-    ],
+    ]
   },
   output: {
     filename: '[name]/index.js',
     path: path.join(__dirname, '../lib'),
-    publicPath: '/lib'
+    publicPath: '/lib',
+    library: '[name]',
+    libraryTarget: 'umd'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -73,27 +92,32 @@ const config = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new ExtractTextPlugin('[name]/styles.css', {allChunks: false}),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractTextPlugin({
+      filename: '[name]/styles.css',
+      allChunks: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
       beautify: true,
-      comments: false,
       compress: {
-        drop_console: true,
         warnings: false,
-        screw_ie8: true
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        join_vars: true,
+        if_return: true
+      },
+      output: {
+        comments: false
       }
     })
   ],
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 versions']
-    })
-  ],
   resolve: {
-    modulesDirectories: ["node_modules", ".", "components", "sass"],
-    extensions: ['', '.js', '.scss'],
-    root: [__dirname]
+    extensions: ['.js', '.scss'],
+    modules: [path.join(__dirname), "node_modules", ".", "lib", "components", "sass"]
   }
 }
 

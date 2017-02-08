@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
-import 'sass/core/container';
 
-export default class Block extends PureComponent {
+export default class Container extends PureComponent {
   static propTypes = {
     className: React.PropTypes.string,
     fluid: React.PropTypes.bool

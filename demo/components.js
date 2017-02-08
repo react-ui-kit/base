@@ -3,9 +3,11 @@ import {render} from 'react-dom';
 
 // import Core components from components/core
 import {
-  Badge, Block, Button, Checkbox, Container, DropDown, Input, Modal,
+  Badge, Button, Checkbox, DropDown, Input, Modal,
   Quantity, Radio, Slider, Range, Switch, Tab, Table, Tabs, Tag, Video, Text
 } from 'components/core';
+
+import { Block, Container } from 'lib/core';
 
 import Progress from 'components/charts/progress';
 import Menu from 'components/navigation/menu';

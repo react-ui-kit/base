@@ -3,8 +3,8 @@
   "version": "1.0.3",
   "description": "React UI Kit - base components",
   "scripts": {
-    "start": "webpack-dev-server --display-error-details --progress --colors --config build/webpack.config.demo.js --open --port 8080 --host 0.0.0.0 --content-base ./demo",
-    "build": "webpack -p  --progress --verbose --colors --display-error-details --config build/webpack.config.js"
+    "start": "npm run build; webpack-dev-server -p --progress --colors --config build/webpack.config.demo.js --content-base ./demo --host 0.0.0.0 --port 8080 --open",
+    "build": "webpack --progress --colors --display-error-details --config build/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -37,12 +37,12 @@
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.7.1",
     "express": "^4.14.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "beta",
     "node-sass": "^3.10.1",
     "postcss-loader": "^1.1.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }
