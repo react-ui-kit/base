@@ -1,6 +1,6 @@
 {
   "name": "react-ui-kit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React UI Kit - base components",
   "scripts": {
     "start": "npm run build; webpack-dev-server -p --progress --colors --config build/webpack.config.demo.js --content-base ./demo --host 0.0.0.0 --port 8080 --open",
