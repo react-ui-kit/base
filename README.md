@@ -45,3 +45,13 @@ React UI Kit - Base components
 - [ ] horizontal
 - [x] progress
 - [ ] stack
+
+# Components Screenshots
+## Base
+![components_base](https://cloud.githubusercontent.com/assets/3584560/22686899/b1935016-ed2e-11e6-8475-16cb97568745.gif)
+
+## Navigation
+![component_base_navs](https://cloud.githubusercontent.com/assets/3584560/22686900/b1966cd8-ed2e-11e6-892e-58cb36bb491d.gif)
+
+## Forms
+![component_forms](https://cloud.githubusercontent.com/assets/3584560/22686898/b1933522-ed2e-11e6-8619-50db971c5171.gif)
