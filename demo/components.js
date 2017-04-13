@@ -132,6 +132,8 @@ export default class Demo extends PureComponent {
           <Tab label={'Video'}>
             <Block full center inline card>
               <Video src={'http://www.w3schools.com/html/mov_bbb.mp4'} />
+              <Video showControls src={'http://www.w3schools.com/html/mov_bbb.mp4'} />
+              <Video autoplay src={'http://www.w3schools.com/html/mov_bbb.mp4'} />
             </Block>
           </Tab>
         </Tabs>

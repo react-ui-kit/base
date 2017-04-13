@@ -13,6 +13,7 @@ export default class Video extends PureComponent {
     width: React.PropTypes.number,
     height: React.PropTypes.number,
     autoplay: React.PropTypes.bool,
+    showControls: React.PropTypes.bool,
     controls: React.PropTypes.bool
   }
 
@@ -23,13 +24,16 @@ export default class Video extends PureComponent {
     width: null,
     height: null,
     autoplay: false,
+    showControls: false,
     controls: true
   }
 
   constructor(props) {
     super(props);
+
     this.state = {
       isPlaying: props.autoplay ? true : false,
+      showControls: props.showControls ? true : false,
       video: {
         currentTime: 0,
         duration: null,
@@ -37,6 +41,22 @@ export default class Video extends PureComponent {
         width: props.width,
         height: props.height
       }
+    };
+  }
+
+  componentDidMount() {
+    this.video.oncanplay = ({...rest}) => {
+      this.handleVideoUpdate();
+    };
+
+    this.video.ontimeupdate = ({...rest}) => {
+      this.handleVideoUpdate();
+    };
+
+    this.video.onended = ({...rest}) => {
+      this.setState({
+        isPlaying: false,
+      });
     };
   }
 
@@ -67,7 +87,7 @@ export default class Video extends PureComponent {
   handleFullScreen() {
     const video = this.video;
 
-    this.handleVideoUpdate.bind(this)();
+    this.handleVideoUpdate();
 
     return video.requestFullscreen ? video.requestFullscreen() :
       video.msRequestFullscreen ? video.msRequestFullscreen() :
@@ -104,28 +124,11 @@ export default class Video extends PureComponent {
     this.video.currentTime = time;
   }
 
-  componentDidMount() {
-    this.video.oncanplay = ({...rest}) => {
-      this.handleVideoUpdate.bind(this)();
-    };
-
-    this.video.ontimeupdate = ({...rest}) => {
-      this.handleVideoUpdate.bind(this)();
-    };
-
-    this.video.onended = ({...rest}) => {
-      this.setState({
-        isPlaying: false
-      });
-    };
-  }
-
   renderControls() {
     const {controls} = this.props;
-    const {video, isPlaying} = this.state;
+    const {video, isPlaying, showControls} = this.state;
 
-    if (!controls) return null;
-    if (!video.width) return null;
+    if (!controls || !video.width || !showControls) return null;
 
     const time = {
       current: parseInt(video.currentTime, 10),
@@ -139,8 +142,10 @@ export default class Video extends PureComponent {
       return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
     };
 
+    const classNames = [isPlaying ? 'isPlaying' : null, showControls ? 'showControls' : null].map(className => className).join(' ')
+
     return (
-      <section className={`controls${isPlaying ? ' is-playing' : ''}`} style={{width: `${video.width}px`}}>
+      <section className={`controls ${classNames}`} style={{width: `${video.width}px`}}>
         <Slider
           success
           min={0}
@@ -163,7 +168,10 @@ export default class Video extends PureComponent {
     const source = src && type ? <source src={src} type={type} /> : null;
 
     return (
-      <section className={'video'}>
+      <section
+        onMouseEnter={() => (this.setState({showControls: true}))}
+        onMouseLeave={() => (this.setState({showControls: false}))}
+        className={'video'}>
         <video
           preload={'auto'}
           autoPlay={autoplay}

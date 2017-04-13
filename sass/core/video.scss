@@ -15,10 +15,6 @@
         &:-webkit-full-screen
             width: 100%
             height: 100%
-        &:hover
-            ~.controls
-                opacity: 1
-                transition: opacity 200ms ease-in-out
     .controls
         flex: 1 1 auto
         position: absolute
@@ -30,8 +26,10 @@
         color: white
         opacity: 1
         transition: opacity 200ms ease-in-out
-        &.is-playing
+        &.isPlaying
             opacity: 0
+        &.showControls
+            opacity: 1
         .buttons
             display: flex
             flex-direction: row
@@ -69,8 +67,6 @@
                 cursor: pointer
                 align-self: baseline
                 &:after
-                    height: inherit
-                    width: inherit
                     content: $fullscreen
             .volume
                 height: 12px
