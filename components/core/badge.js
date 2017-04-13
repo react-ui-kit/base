@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/badge';
 
 export default class Badge extends PureComponent {
+  static displayName = 'Badge'
+
   static propTypes = {
     className: React.PropTypes.string,
     round: React.PropTypes.bool,

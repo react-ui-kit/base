@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/text';
 
 export default class Text extends PureComponent {
+  static displayName = 'Text'
+
   static propTypes = {
     className: React.PropTypes.string,
     type: React.PropTypes.string,

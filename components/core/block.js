@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/block';
 
 export default class Block extends PureComponent {
+  static displayName = 'Block'
+
   static propTypes = {
     className: React.PropTypes.string,
     xs: React.PropTypes.bool,

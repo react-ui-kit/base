@@ -2,6 +2,8 @@ import React from 'react';
 import 'sass/headers/header';
 
 export default class Header extends React.Component {
+  static displayName = 'Header'
+
   static propTypes = {
     className: React.PropTypes.string,
     center: React.PropTypes.bool

@@ -3,6 +3,8 @@ import Button from 'core/button';
 import 'sass/forms/forms';
 
 export default class SignUp extends React.Component {
+  static displayName = 'SignUp'
+
   static propTypes = {
     title: React.PropTypes.string,
     className: React.PropTypes.string,

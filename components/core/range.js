@@ -5,6 +5,8 @@ import 'sass/core/range';
 // Inspiration: http://codepen.io/rendykstan/pen/VLqZGO
 
 export default class Range extends PureComponent {
+  static displayName = 'Range'
+
   static propTypes = {
     className: React.PropTypes.string,
     type: React.PropTypes.string,

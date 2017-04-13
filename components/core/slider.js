@@ -3,6 +3,8 @@ import Progress from 'components/charts/progress';
 import 'sass/core/slider';
 
 export default class Slider extends PureComponent {
+  static displayName = 'Slider'
+
   static propTypes = {
     className: React.PropTypes.string,
     type: React.PropTypes.string,

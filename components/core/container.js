@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 
 export default class Container extends PureComponent {
+  static displayName = 'Container'
+
   static propTypes = {
     className: React.PropTypes.string,
     fluid: React.PropTypes.bool

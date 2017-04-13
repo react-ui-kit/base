@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/navigation/steps';
 
 export default class Steps extends PureComponent {
+  static displayName = 'Steps'
+
   static propTypes = {
     className: React.PropTypes.string,
     steps: React.PropTypes.number,

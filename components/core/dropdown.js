@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/dropdown';
 
 export default class DropDown extends PureComponent {
+  static displayName = 'DropDown'
+
   static propTypes = {
     className: React.PropTypes.string,
     onChange: React.PropTypes.func,
@@ -109,7 +111,7 @@ export default class DropDown extends PureComponent {
         {label ? <span className={'label'}>{label}</span> : null}
         {this.renderSelect()}
         {this.renderList()}
-        {!disabled ? <span className={'carot'} /> : null}
+        {!disabled ? <span className={'caret'} /> : null}
       </label>
     );
   }

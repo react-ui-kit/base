@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/tabs';
 
 export default class Tab extends PureComponent {
+  static displayName = 'Tab'
+
   static propTypes = {
     className: React.PropTypes.string,
     active: React.PropTypes.bool

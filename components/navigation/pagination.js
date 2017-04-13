@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/navigation/pagination';
 
 export default class Pagination extends PureComponent {
+  static displayName = 'Pagination'
+
   static propTypes = {
     className: React.PropTypes.string,
     pages: React.PropTypes.number,

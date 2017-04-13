@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/modal';
 
 export default class Modal extends PureComponent {
+  static displayName = 'Modal'
+
   static propTypes = {
     className: React.PropTypes.string,
     title: React.PropTypes.string,

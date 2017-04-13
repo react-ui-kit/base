@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/table';
 
 export default class Table extends PureComponent {
+  static displayName = 'Table'
+
   static propTypes = {
     className: React.PropTypes.string
   }

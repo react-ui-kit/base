@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-export default class Horizontal extends React.Component {
+export default class Horizontal extends PureComponent {
+  static displayName = 'ChartHorizontal'
+
   static propTypes = {
     className: React.PropTypes.string
   };

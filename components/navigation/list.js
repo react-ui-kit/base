@@ -1,7 +1,9 @@
 import React from 'react';
 import 'sass/navigation/list';
 
-export default class Header extends React.Component {
+export default class List extends React.Component {
+  static displayName = 'List'
+
   static propTypes = {
     className: React.PropTypes.string,
     center: React.PropTypes.bool,
@@ -12,17 +14,13 @@ export default class Header extends React.Component {
     className: ''
   }
 
-  renderItems() {
-    return React.Children.map(this.props.children, (item, index) => <li>{item}</li>);
-  }
-
   render() {
     const {children, className, center, right, ...rest} = this.props;
-    const ListPosition = center ? 'center ' : right ? 'right ' : '';
-
+    const position = center ? 'center ' : right ? 'right ' : '';
+    const classNames = ['list', ...position, ...className].join('');
     return (
-      <ul className={`list ${ListPosition}${className}`} {...rest}>
-        {this.renderItems.bind(this)()}
+      <ul className={classNames} {...rest}>
+        {children}
       </ul>
     );
   }

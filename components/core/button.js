@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/button';
 
 export default class Button extends PureComponent {
+  static displayName = 'Button'
+
   static propTypes = {
     className: React.PropTypes.string,
     type: React.PropTypes.string

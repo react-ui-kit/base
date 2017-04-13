@@ -9,6 +9,8 @@ const MenuItem = props => {
 };
 
 export default class Menu extends PureComponent {
+  static displayName = 'Menu'
+
   static propTypes = {
     className: React.PropTypes.string,
     open: React.PropTypes.bool,

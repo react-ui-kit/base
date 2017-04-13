@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/quantity';
 
 export default class Quantity extends PureComponent {
+  static displayName = 'Quantity'
+
   static propTypes = {
     className: React.PropTypes.string,
     placeholder: React.PropTypes.string,

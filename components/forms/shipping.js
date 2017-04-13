@@ -2,7 +2,9 @@ import React from 'react';
 import 'sass/forms/forms';
 import 'sass/forms/shipping';
 
-export default class Contact extends React.Component {
+export default class Shipping extends React.Component {
+  static displayName = 'Shipping'
+
   static propTypes = {
     className: React.PropTypes.string,
     subscribeText: React.PropTypes.string,

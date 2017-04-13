@@ -2,6 +2,8 @@ import React from 'react';
 import 'sass/footers/footer';
 
 export default class Footer extends React.Component {
+  static displayName = 'Footer'
+
   static propTypes = {
     className: React.PropTypes.string,
     center: React.PropTypes.bool

@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/tags';
 
 export default class Tag extends PureComponent {
+  static displayName = 'Tags'
+
   static propTypes = {
     className: React.PropTypes.string,
     label: React.PropTypes.string,

@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/charts/progress';
 
 export default class Progress extends PureComponent {
+  static displayName = 'ChartProgress'
+
   static propTypes = {
     className: React.PropTypes.string,
     label: React.PropTypes.any,

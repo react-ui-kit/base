@@ -1,6 +1,8 @@
 import React from 'react';
 
 export default class Cart extends React.Component {
+  static displayName = 'Cart'
+
   static propTypes = {
     className: React.PropTypes.string
   }

@@ -3,6 +3,8 @@ import Button from 'core/button';
 import 'sass/forms/forms';
 
 export default class Login extends React.Component {
+  static displayName = 'Login'
+
   static propTypes = {
     className: React.PropTypes.string,
     title: React.PropTypes.string,

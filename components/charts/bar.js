@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-export default class Bar extends React.Component {
+export default class Bar extends PureComponent {
+  static displayName = 'ChartBar'
+
   static propTypes = {
     className: React.PropTypes.string
   };

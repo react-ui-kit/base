@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/input';
 
 export default class Input extends PureComponent {
+  static displayName = 'Input'
+
   static propTypes = {
     className: React.PropTypes.string,
     type: React.PropTypes.string,

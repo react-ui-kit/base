@@ -23,6 +23,8 @@ import Countries from 'countries';
 import Regions from 'regions';
 
 export default class Demo extends PureComponent {
+  static displayName = 'Demo'
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,9 +52,9 @@ export default class Demo extends PureComponent {
 
     return (
       <Container style={containerStyle}>
-        <h3>Components</h3>
+        <Text h3>Components</Text>
         <hr />
-        <h5>Inputs</h5>
+        <Text h5>Inputs</Text>
         <Tabs>
           <Tab label={'Buttons'}>
             <Block inline full>
@@ -134,7 +136,7 @@ export default class Demo extends PureComponent {
           </Tab>
         </Tabs>
 
-        <h5>Other</h5>
+        <Text h5>Other</Text>
         <Tabs componentUpdate>
           <Tab label={'Tags'}>
             <Tag label={'Default TAG'} />
@@ -295,7 +297,7 @@ export default class Demo extends PureComponent {
           </Tab>
         </Tabs>
 
-        <h5>Forms</h5>
+        <Text h5>Forms</Text>
         <Tabs componentUpdate>
           <Tab label={'Login'}>
             <Login

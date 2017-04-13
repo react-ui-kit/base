@@ -4,6 +4,8 @@ import 'sass/forms/forms';
 import 'sass/forms/subscribe';
 
 export default class Subscribe extends React.Component {
+  static displayName = 'Subscribe'
+
   static propTypes = {
     className: React.PropTypes.string,
     subscribeText: React.PropTypes.string,

@@ -3,6 +3,8 @@ import Button from 'core/button';
 import 'sass/forms/forms';
 
 export default class Contact extends React.Component {
+  static displayName = 'Contact'
+
   static propTypes = {
     className: React.PropTypes.string,
     contactText: React.PropTypes.string,

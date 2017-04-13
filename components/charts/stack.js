@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-export default class Stack extends React.Component {
+export default class Stack extends PureComponent {
+  static displayName = 'ChartProgress'
+
   static propTypes = {
     className: React.PropTypes.string
   };

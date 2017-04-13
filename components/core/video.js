@@ -4,6 +4,8 @@ import Slider from './slider';
 import 'sass/core/video';
 
 export default class Video extends PureComponent {
+  static displayName = 'Video'
+
   static propTypes = {
     className: React.PropTypes.string,
     src: React.PropTypes.string,

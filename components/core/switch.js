@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/switch';
 
 export default class Switch extends PureComponent {
+  static displayName = 'Switch'
+
   static propTypes = {
     className: React.PropTypes.string,
     onLabel: React.PropTypes.string,

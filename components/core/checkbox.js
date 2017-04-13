@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import 'sass/core/checkbox';
 
 export default class Checkbox extends PureComponent {
+  static displayName = 'Checkbox'
+
   static propTypes = {
     className: React.PropTypes.string,
     label: React.PropTypes.string,
