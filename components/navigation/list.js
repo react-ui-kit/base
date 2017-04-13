@@ -9,13 +9,11 @@ export default class Header extends React.Component {
   }
 
   static defaultProps = {
-    className: '',
+    className: ''
   }
 
   renderItems() {
-    return React.Children.map(this.props.children, (item, index) => {
-      return <li>{item}</li>
-    });
+    return React.Children.map(this.props.children, (item, index) => <li>{item}</li>);
   }
 
   render() {

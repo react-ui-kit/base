@@ -64,7 +64,6 @@ export default class Steps extends PureComponent {
     return null;
   }
 
-
   renderNext() {
     const {controls} = this.props;
     const {currentStep} = this.state;
@@ -78,12 +77,19 @@ export default class Steps extends PureComponent {
     return null;
   }
 
+  renderOptions() {
+    const {steps, current, accent, primary, large, controls} = this.props;
+    const options = [steps, current, accent, primary, large, controls];
+
+    return options.map(option => option ? `${option}` : null).join(' ');
+  }
+
   render() {
-    const {children, className, steps, current, accent, primary, large, controls, ...rest} = this.props;
-    const hasControls = controls ? 'controls' : '';
+    const {children, className, ...rest} = this.props;
+    const hasOptions = this.renderOptions();
 
     return (
-      <ul className={`steps ${hasControls}${className}`} {...rest}>
+      <ul className={`steps ${hasOptions} ${className}`} {...rest}>
         {this.renderPrev.bind(this)()}
         {this.renderSteps.bind(this)()}
         {this.renderNext.bind(this)()}

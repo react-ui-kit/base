@@ -4,7 +4,7 @@ export default class Payment extends React.Component {
   static propTypes = {
     className: React.PropTypes.string
   }
-  
+
   render() {
     const {children, className, ...rest} = this.props;
     return (

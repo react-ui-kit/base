@@ -3,11 +3,10 @@ import {render} from 'react-dom';
 
 // import Core components from components/core
 import {
+  Block, Container,
   Badge, Button, Checkbox, DropDown, Input, Modal,
   Quantity, Radio, Slider, Range, Switch, Tab, Table, Tabs, Tag, Video, Text
 } from 'components/core';
-
-import { Block, Container } from 'lib/core';
 
 import Progress from 'components/charts/progress';
 import Menu from 'components/navigation/menu';
@@ -47,9 +46,10 @@ export default class Demo extends PureComponent {
 
   render() {
     const { showModal } = this.state;
+    const containerStyle = { maxWidth: '80rem', margin: '0 auto'};
 
     return (
-      <Container>
+      <Container style={containerStyle}>
         <h3>Components</h3>
         <hr />
         <h5>Inputs</h5>

@@ -24,10 +24,10 @@ const config = {
     'core/tags':      ['components/core/tags', 'sass/core/tags.scss'],
     'core/video':     ['components/core/video', 'sass/core/video.scss'],
     'core/':          ['components/core/index'],
-    
+
     // charts components
     'charts/progress': ['components/charts/progress', 'sass/charts/progress.scss'],
-    
+
     // navigation components
     'navigation/menu':        ['components/navigation/menu', 'sass/navigation/menu.scss'],
     'navigation/pagination':  ['components/navigation/pagination', 'sass/navigation/pagination.scss'],

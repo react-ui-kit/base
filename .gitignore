@@ -4,4 +4,4 @@ yarn.lock
 *.sublime-project
 *.sublime-workspace
 .idea
-dist/
+lib/

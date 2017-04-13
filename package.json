@@ -4,7 +4,8 @@
   "description": "React UI Kit - base components",
   "scripts": {
     "start": "npm run build; webpack-dev-server -p --progress --colors --config build/webpack.config.demo.js --content-base ./demo --host 0.0.0.0 --port 8080 --open",
-    "build": "webpack --progress --colors --display-error-details --config build/webpack.config.js"
+    "build": "webpack --progress --colors --display-error-details --config build/webpack.config.js",
+    "lint": "eslint components/**"
   },
   "repository": {
     "type": "git",
