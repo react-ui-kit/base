@@ -34,10 +34,10 @@ const config = {
             },
             {
               loader: 'sass-loader',
-              query: {
+              options: {
                 indentedSyntax: 'sass',
                 sourceMap: false,
-                includePaths: path.resolve(__dirname)
+                includePaths: [path.resolve(__dirname)]
               }
             }
           ],
