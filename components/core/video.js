@@ -55,7 +55,7 @@ export default class Video extends PureComponent {
 
     this.video.onended = ({...rest}) => {
       this.setState({
-        isPlaying: false,
+        isPlaying: false
       });
     };
   }
@@ -142,7 +142,7 @@ export default class Video extends PureComponent {
       return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
     };
 
-    const classNames = [isPlaying ? 'isPlaying' : null, showControls ? 'showControls' : null].map(className => className).join(' ')
+    const classNames = [isPlaying ? 'isPlaying' : null, showControls ? 'showControls' : null].map(className => className).join(' ');
 
     return (
       <section className={`controls ${classNames}`} style={{width: `${video.width}px`}}>
