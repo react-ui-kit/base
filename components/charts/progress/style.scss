@@ -1,0 +1,33 @@
+@import "sass/variables";
+@import "sass/mixins/progress";
+@import "sass/mixins/box-sizing";
+
+.progress
+	position: relative
+	font-size: 12px
+	display: inline-block
+	.text
+		display: block
+		margin: 0
+		padding: 0
+	progress
+		height: 4px
+		display: inline-block
+		@include box-sizing(border-box)
+		&[value]
+			border: 0
+			appearance: none
+			border-radius: 4px
+
+.progress
+	progress
+		@include progress-unfill($default_color)
+		@include progress-fill(rgba($black, 0.3))
+		&.success
+			@include progress-fill($progress_success_color)
+		&.info
+			@include progress-fill($progress_info_color)
+		&.warning
+			@include progress-fill($progress_warning_color)
+		&.error
+			@include progress-fill($progress_error_color)

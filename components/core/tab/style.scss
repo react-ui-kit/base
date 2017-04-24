@@ -1,0 +1,10 @@
+@import "sass/variables";
+
+.tab
+	display: none
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: flex-start
+	flex: 1 1 100%
+	&.active
+		display: flex

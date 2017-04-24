@@ -1,0 +1,32 @@
+@import "sass/variables";
+
+.container
+    margin-left: auto
+    margin-right: auto
+    max-width: $container_width
+    position: relative
+    @media only screen and (max-width : 1400px)
+        $container_width: 98%
+        width: $container_width
+    @media (min-width: 1200px)
+        $container_width: 98%
+        width: $container_width
+    @media (max-width: 1200px)
+        $container_width: 98%
+        width: $container_width
+    @media (max-width: 992px)
+        $container_width: 98%
+        width: $container_width
+    @media (max-width: 768px)
+        $container_width: 98%
+        width: $container_width
+    @media (max-width: 576px)
+        $container_width: 98%
+        width: $container_width
+    &.fluid
+        display: flex
+        flex-wrap: wrap
+
+.start, .center, .end
+    display: flex
+    flex-direction: column

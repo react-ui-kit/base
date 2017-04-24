@@ -15,12 +15,19 @@ const config = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/,
+        test: /\.[s]css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
+              options: {
+                localIdentName: '[local]',
+                modules: true,
+                importLoaders: 2,
+                sourceMap: true,
+                minimize: false,
+              }
             },
             {
               loader: 'postcss-loader',
@@ -36,7 +43,7 @@ const config = {
               loader: 'sass-loader',
               options: {
                 indentedSyntax: 'sass',
-                sourceMap: false,
+                sourceMap: true,
                 includePaths: [path.resolve(__dirname)]
               }
             }
@@ -58,7 +65,7 @@ const config = {
     filename: '[name].js',
     path: path.join(__dirname, '../dist'),
     publicPath: '/dist',
-    library: '[name]',
+    library: 'react-ui-kit',
     libraryTarget: 'umd'
   },
   plugins: [

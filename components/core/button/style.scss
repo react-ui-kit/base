@@ -1,0 +1,29 @@
+@import "sass/variables";
+
+.button
+    width: 150px
+    height: 42px
+    border: 2px solid $button_border_color
+    background: $white
+    border-radius: 6px
+    font-size: 12px
+    color: $button_text_color
+    outline: none
+    cursor: pointer
+    &:disabled
+        background: $disabled_color
+        color: $menu_text_color
+        cursor: not-allowed
+    @media (max-width: 450px)
+        flex: 1 1 auto
+    &.full
+        width: 100%
+    &.round
+        border-radius: 60px
+    &.active
+        background-color: $button_active_color
+        color: $white
+        border: none
+    &.big
+        border-radius: 60px
+        height: 60px

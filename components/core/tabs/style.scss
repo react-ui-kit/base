@@ -1,0 +1,37 @@
+@import "sass/variables";
+
+.tabs
+	width: auto
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: flex-start
+	align-content: center
+	align-items: center
+	&-menu
+		border-bottom: 1px solid $default_color
+		margin-bottom: 20px
+		height: 34px
+		width: auto
+		// overflow: hidden
+		display: flex
+		flex: 1 1 100%
+		.item
+			flex: 0 1 auto
+			justify-content: center
+			display: flex
+			height: 34px
+			line-height: 38px
+			vertical-align: middle
+			text-decoration: none
+			font-size: 14px
+			color: $input_color
+			letter-spacing: 0px
+			text-align: center
+			margin-right: 21px
+			width: 100%
+			&:last-child
+				margin-right: 0
+		.active
+			border-bottom: 2px solid $input_color
+			height: 33px

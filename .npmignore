@@ -4,5 +4,9 @@ demo/
 sass/
 ./index.js
 yarn.lock
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc
 # re-include lib files
 !lib/

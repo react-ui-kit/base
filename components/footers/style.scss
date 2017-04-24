@@ -1,0 +1,19 @@
+@import "sass/variables";
+
+.footer
+	height: 90px
+	line-height: 90px
+	color: $header_text_color
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	justify-content: center
+	flex: 0 1 auto
+	&.center
+		align-content: center
+		text-align: center
+	.logo
+		line-height: 90px
+		font-size: 22px
+		min-width: 120px
+		color: $header_logo_color

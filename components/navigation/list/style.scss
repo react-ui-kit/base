@@ -1,0 +1,19 @@
+@import "sass/variables";
+
+.list
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: flex-start
+	align-content: flex-start
+	align-items: flex-start
+	width: 100%
+	height: inherit
+	line-height: inherit
+	&.center
+		justify-content: center
+	&.right
+		justify-content: flex-start
+	li 
+		list-style: none
+		padding: 0 10px

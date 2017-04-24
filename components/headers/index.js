@@ -1,5 +1,5 @@
 import React from 'react';
-import 'sass/headers/header';
+import './style';
 
 export default class Header extends React.Component {
   static displayName = 'Header'

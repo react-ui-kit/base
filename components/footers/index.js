@@ -1,5 +1,5 @@
 import React from 'react';
-import 'sass/footers/footer';
+import './style';
 
 export default class Footer extends React.Component {
   static displayName = 'Footer'

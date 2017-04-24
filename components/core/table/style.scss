@@ -1,0 +1,37 @@
+@import "sass/variables";
+
+.table
+	width: 100%
+	max-width: 100%
+	background: $white
+	font-size: 14px
+	text-align: left
+	border: 0
+	border-collapse: collapse
+	overflow-x: auto
+	thead
+		color: $table_head_color
+		td,th
+			margin: 0
+			padding: 0
+			height: 30px
+			max-height: 30px
+			line-height: 30px
+			text-align: left
+			border-bottom: 1px solid $default_color
+			&:first-child
+				padding-left: 10px
+	tbody
+		color: $table_body_color
+		tr
+			&:nth-child(2n)
+				td,th
+					background: $default_color
+		td,th
+			margin: 0
+			padding: 0
+			height: 42px
+			max-height: 42px
+			line-height: 42px
+			&:first-child
+				padding-left: 10px

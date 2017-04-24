@@ -1,0 +1,67 @@
+@import "sass/variables";
+@import "sass/contents";
+
+.menu
+	width: 260px
+	margin: 0
+	padding: 0
+	font-size: 14px
+	background: $white
+	border-radius: 6px
+	list-style-type: none
+	box-shadow: 1px 2px 3px 0px rgba($black, 0.10)
+	.item
+		user-select: none
+		cursor: pointer
+		height: 60px
+		line-height: 59px
+		padding: 0 20px
+		border-top: 1px solid $default_color
+		color: $menu_text_color
+		font-weight: 500
+		&.open
+			color: $link_color
+		&:first-child
+			border-top: 0
+		&.hasSubmenu
+			&:after
+				float: right
+				content: $menu_close
+			&.open
+				&:after
+					float: right
+					content: $menu_open
+	.submenu
+		margin: 0
+		padding: 0
+		border: 0
+		font-size: 13px
+		height: 0
+		max-height: 0
+		overflow-y: scroll
+		overflow-x: hidden
+		list-style-type: none
+		color: $submenu_text_color
+		transition: all 0.2s ease-in-out
+		.item
+			cursor: pointer
+			color: $submenu_text_color
+			border-top: 1px solid $default_color
+			height: 0
+			padding: 0 20px
+			line-height: 43px
+			background: rgba($default_color, 0.50)
+			font-weight: normal
+		&.open
+			height: auto
+			max-height: 300px
+			color: $submenu_text_color
+			.item
+				height: 44px
+		&:first-child
+			background: $white
+			font-size: 16px
+			height: 60px
+			line-height: 59px
+			padding: 0 20px
+			color: $menu_text_color

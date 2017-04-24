@@ -6,34 +6,40 @@ const webpack = require('webpack')
 const config = {
   entry: {
     // core components
-    'core/badge':     ['components/core/badge', 'sass/core/badge.scss'],
-    'core/block':     ['components/core/block', 'sass/core/block.scss'],
-    'core/button':    ['components/core/button', 'sass/core/button.scss'],
-    'core/checkbox':  ['components/core/checkbox', 'sass/core/checkbox.scss'],
-    'core/container': ['components/core/container', 'sass/core/container.scss'],
-    'core/dropdown':  ['components/core/dropdown', 'sass/core/dropdown.scss'],
-    'core/input':     ['components/core/input', 'sass/core/input.scss'],
-    'core/modal':     ['components/core/modal', 'sass/core/modal.scss'],
-    'core/quantity':  ['components/core/quantity', 'sass/core/quantity.scss'],
-    'core/radio':     ['components/core/radio', 'sass/core/radio.scss'],
-    'core/slider':    ['components/core/slider', 'sass/core/slider.scss'],
-    'core/switch':    ['components/core/switch', 'sass/core/switch.scss'],
-    'core/tab':       ['components/core/tab'],
-    'core/table':     ['components/core/table', 'sass/core/table.scss'],
-    'core/tabs':      ['components/core/tabs', 'sass/core/tabs.scss'],
-    'core/tags':      ['components/core/tags', 'sass/core/tags.scss'],
-    'core/video':     ['components/core/video', 'sass/core/video.scss'],
-    'core/':          ['components/core/index'],
+    'core/badge':     'components/core/badge',
+    'core/block':     'components/core/block',
+    'core/button':    'components/core/button',
+    'core/checkbox':  'components/core/checkbox',
+    'core/container': 'components/core/container',
+    'core/dropdown':  'components/core/dropdown',
+    'core/input':     'components/core/input',
+    'core/modal':     'components/core/modal',
+    'core/quantity':  'components/core/quantity',
+    'core/radio':     'components/core/radio',
+    'core/slider':    'components/core/slider',
+    'core/switch':    'components/core/switch',
+    'core/tab':       'components/core/tab',
+    'core/table':     'components/core/table',
+    'core/tabs':      'components/core/tabs',
+    'core/tags':      'components/core/tags',
+    'core/video':     'components/core/video',
+    'core/':          'components/core/',
 
     // charts components
-    'charts/progress': ['components/charts/progress', 'sass/charts/progress.scss'],
+    'charts/progress':    'components/charts/progress',
+    'charts/bar':         'components/charts/bar',
+    'charts/horizontal':  'components/charts/horizontal',
+    'charts/line':        'components/charts/line',
+    'charts/stack':       'components/charts/stack',
 
     // navigation components
-    'navigation/menu':        ['components/navigation/menu', 'sass/navigation/menu.scss'],
-    'navigation/pagination':  ['components/navigation/pagination', 'sass/navigation/pagination.scss'],
+    'navigation/list':        'components/navigation/list',
+    'navigation/menu':        'components/navigation/menu',
+    'navigation/pagination':  'components/navigation/pagination',
+    'navigation/steps':       'components/navigation/steps',
 
     // index components
-    '.':  ['components/index']
+    '.':  'components/'
   },
   module: {
     rules: [
@@ -43,12 +49,20 @@ const config = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/,
+        test: /\.[s]css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
+              options: {
+                localIdentName: '[local]',
+                modules: true,
+                importLoaders: 2,
+                sourceMap: true,
+                camelCase: true,
+                minimize: false,
+              }
             },
             {
               loader: 'postcss-loader',
@@ -64,7 +78,7 @@ const config = {
               loader: 'sass-loader',
               options: {
                 indentedSyntax: 'sass',
-                sourceMap: false,
+                sourceMap: true,
                 includePaths: [path.resolve(__dirname)]
               }
             }
@@ -93,7 +107,7 @@ const config = {
       }
     }),
     new ExtractTextPlugin({
-      filename: '[name]/styles.css',
+      filename: '[name]/style.css',
       allChunks: false
     }),
     new webpack.optimize.UglifyJsPlugin({

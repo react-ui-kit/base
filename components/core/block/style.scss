@@ -1,0 +1,44 @@
+@import "sass/variables";
+
+.block
+	display: flex
+	flex-wrap: wrap
+	width: auto
+	height: auto
+	box-sizing: border-box
+	-webkit-box-flex: 0
+	&.column
+		flex-direction: column
+	&.row
+		flex-direction: row
+	& > .button, .checkbox, .dropdown, .input, .modal, .quantity, .range, .slider, .switch, .table
+		flex: 1 1 8.33% // 12 column grid
+	&.card
+		box-shadow: 0px 0px 3px 0px rgba($black, 0.10)
+		border-radius: 6px
+		padding: 20px 30px
+		margin-right: 30px
+		margin-bottom: 30px
+	&.xs
+		width: 230px
+	&.sm
+		width: 330px
+	&.md
+		width: 530px
+	&.lg
+		width: 730px
+	&.full
+		width: auto
+		margin-right: 0
+		flex: 1 1 auto
+	&:last-child
+		margin-right: 0
+	&.inline
+		flex-direction: row
+	&.center
+		align-content: center
+		text-align: center
+	&.middle
+		@extend .center
+		justify-content: center
+		align-items: center

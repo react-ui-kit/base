@@ -1,0 +1,61 @@
+@import "sass/variables";
+@import "sass/contents";
+
+.overlay
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 1050
+	display: none
+	overflow: hidden
+	outline: 0
+	background-color: rgba($black, .10)
+	&.open
+		display: block
+
+.modal
+	position: relative
+	display: block
+	background: $white
+	box-shadow: 1px 2px 3px 0px rgba($black, .10)
+	border-radius: 6px
+	min-height: 300px
+	border: 1px solid darken($default_color, 1%)
+	width: 60%
+	margin: 5% auto
+	@media (max-width: 450px)
+		width: 90%
+	.full
+		height: 90%
+		width: 90%
+	.header
+		padding: 0 40px 
+		height: 60px
+		border-bottom: 1px solid darken($default_color, 1%)
+		vertical-align: middle
+		display: flex
+		color: $text_color
+		.title
+			flex: 1 0 auto
+			margin: 0
+			opacity: 0.5
+			font-size: 12px
+			letter-spacing: 1px
+			line-height: 60px
+		.close
+			position: absolute
+			right: 10px
+			top: 10px
+			opacity: 0.5
+			font-size: 12px
+			line-height: 10px
+			text-align: center
+			color: $text_color
+			cursor: pointer
+			text-decoration: none
+			content: $close
+	.content
+		padding: 40px
+		font-size: 14px

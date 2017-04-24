@@ -1,0 +1,32 @@
+@import "sass/variables";
+
+.badge
+    background: $default_color
+    border: 1px solid darken($default_color, 1%)
+    color: $link_color
+    font-size: 0.8em
+    border-radius: 4px
+    cursor: default
+    padding: 0 2px
+    font-size: 14px
+    font-size: 0.875rem
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
+    border-radius: 10px
+    height: 20px
+    width: 20px
+    display: inline-block
+    font-family: Helvetica, arial, verdana, sans-serif
+    font-weight: bold
+    line-height: 20px
+    text-align: center
+    vertical-align: baseline
+    margin-right: 2px
+    &:hover
+        border-color: darken($default_color, 5%)
+    &.round
+        border-radius: 100%
+        padding: 0
+    &.border
+        background-color: transparent
+        border: 1px solid $link_color

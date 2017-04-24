@@ -1,0 +1,38 @@
+@import "sass/variables";
+@import "sass/contents";
+
+.quantity
+    line-height: 30px
+    margin: 10px
+    margin-left: 0
+    outline: none
+    input
+        border: none
+        width: 43px
+        height: 30px
+        font-size: 14px
+        outline: none
+        line-height: 18px
+        text-align: center
+        text-indent: 12px
+        appearance: none
+    .plus
+        background: $default_color
+        border-radius: 6px
+        height: 30px
+        width: 30px
+        outline: none
+        cursor: pointer
+        border: 1px solid darken($default_color, 2%)
+        &:after
+            content: $plus
+    .minus
+        background: $default_color
+        border-radius: 6px
+        height: 30px
+        width: 30px
+        outline: none
+        cursor: pointer
+        border: 1px solid darken($default_color, 2%)
+        &:after
+            content: $minus

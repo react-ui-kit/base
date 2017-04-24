@@ -1,0 +1,62 @@
+@import "sass/variables";
+
+.base-text
+    font-size: 18px
+    font-weight: normal
+    line-height: 26px
+    letter-spacing: 0px
+    color: $text_color
+.text
+    font-size: 14px
+    letter-spacing: 0px
+    line-height: 22px
+    &.uppercase
+        text-transform: uppercase
+    &.lowercase
+        text-transform: lowercase
+    &.capitalize
+        text-transform: capitalize
+    &.title
+        font-size: 16px
+        line-height: 25px
+a
+    text-decoration: none
+    color: $link_color
+    &:hover
+        text-decoration: underline
+    &.text
+        text-decoration: none
+        color: inherit
+h1
+    &.text
+        @extend .base-text
+        font-size: 72px
+        letter-spacing: -1.2px
+        line-height: 72px
+        font-weight: bold
+h2
+    &.text
+        @extend .base-text
+        font-size: 52px
+        letter-spacing: -2px
+        line-height: 58px
+h3
+    &.text
+        @extend .base-text
+        font-size: 32px
+        line-height: 38px
+h4
+    &.text
+        @extend .base-text
+        font-size: 26px
+        line-height: 34px
+h5
+    &.text
+        @extend .base-text
+        font-size: 18px
+        line-height: 35px
+h6
+    &.text
+        @extend .base-text
+        font-size: 14px
+        line-height: 21px

@@ -1,1 +1,1 @@
-export Components from './Components';
+module.exports = require("./lib/index.js");
