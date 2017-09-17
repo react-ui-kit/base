@@ -25,6 +25,10 @@
             cursor: not-allowed
         &:required
             border-color: $required_color
+        &.error
+            border-color: $error_color
+        &.valid
+            border-color: $success_color
     textarea
         @extend input
         height: 126px

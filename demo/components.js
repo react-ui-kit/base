@@ -85,6 +85,8 @@ export default class Demo extends PureComponent {
               <Input type={'email'} placeholder={'Email'} required />
               &nbsp;
               <Input placeholder={'Disabled'} disabled />
+              &nbsp;
+              <Input placeholder={'Input with pattern'} pattern='[a-zA-Z]{6,}' onChange={(ev) => console.log('Input with pattern onChange', ev.target)} />
             </Block>
           </Tab>
           <Tab label={'Quantity'}>
