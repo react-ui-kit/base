@@ -1,6 +1,6 @@
 {
   "name": "react-ui-kit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React UI Kit - Components",
   "scripts": {
     "prepublish": "npm run build",
