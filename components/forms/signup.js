@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'core/button';
 import 'sass/forms/forms';
 
@@ -6,11 +7,11 @@ export default class SignUp extends React.Component {
   static displayName = 'SignUp'
 
   static propTypes = {
-    title: React.PropTypes.string,
-    className: React.PropTypes.string,
-    signupText: React.PropTypes.string,
-    description: React.PropTypes.string,
-    onSignUp: React.PropTypes.func
+    title: PropTypes.string,
+    className: PropTypes.string,
+    signupText: PropTypes.string,
+    description: PropTypes.string,
+    onSignUp: PropTypes.func
   }
 
   static defaultProps = {

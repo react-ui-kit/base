@@ -1,20 +1,21 @@
 import React, { PureComponent } from 'react';
-
-import Slider from '../slider/';
+import PropTypes from 'prop-types';
+import utils from 'utils';
+import Slider from 'components/core/slider/';
 import './style';
 
 export default class Video extends PureComponent {
   static displayName = 'Video'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    src: React.PropTypes.string,
-    type: React.PropTypes.string,
-    width: React.PropTypes.number,
-    height: React.PropTypes.number,
-    autoplay: React.PropTypes.bool,
-    showControls: React.PropTypes.bool,
-    controls: React.PropTypes.bool
+    className: PropTypes.string,
+    src: PropTypes.string,
+    type: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    autoplay: PropTypes.bool,
+    showControls: PropTypes.bool,
+    controls: PropTypes.bool
   }
 
   static defaultProps = {
@@ -45,13 +46,9 @@ export default class Video extends PureComponent {
   }
 
   componentDidMount() {
-    this.video.oncanplay = ({...rest}) => {
-      this.handleVideoUpdate();
-    };
+    this.video.oncanplay = ({...rest}) => this.handleVideoUpdate();
 
-    this.video.ontimeupdate = ({...rest}) => {
-      this.handleVideoUpdate();
-    };
+    this.video.ontimeupdate = ({...rest}) => this.handleVideoUpdate();
 
     this.video.onended = ({...rest}) => {
       this.setState({
@@ -60,7 +57,7 @@ export default class Video extends PureComponent {
     };
   }
 
-  handleClick() {
+  handleClick = () => {
     let {isPlaying} = this.state;
 
     if (isPlaying) this.video.pause();
@@ -81,10 +78,10 @@ export default class Video extends PureComponent {
       isPlaying
     });
 
-    this.handleVideoUpdate.bind(this)();
+    this.handleVideoUpdate();
   }
 
-  handleFullScreen() {
+  handleFullScreen = () => {
     const video = this.video;
 
     this.handleVideoUpdate();
@@ -96,7 +93,7 @@ export default class Video extends PureComponent {
       false;
   }
 
-  handleVideoUpdate() {
+  handleVideoUpdate = () => {
     let {video} = this.state;
     const videoBounds = this.video.getBoundingClientRect();
 
@@ -115,7 +112,7 @@ export default class Video extends PureComponent {
     // console.log('handleVideoUpdate', video);
   }
 
-  handleVideoSeek(time) {
+  handleVideoSeek = (time) => {
     let {video} = this.state;
 
     video.currentTime = time;
@@ -124,7 +121,7 @@ export default class Video extends PureComponent {
     this.video.currentTime = time;
   }
 
-  renderControls() {
+  renderControls = () => {
     const {controls} = this.props;
     const {video, isPlaying, showControls} = this.state;
 
@@ -145,7 +142,7 @@ export default class Video extends PureComponent {
     const classNames = [isPlaying ? 'isPlaying' : null, showControls ? 'showControls' : null].map(className => className).join(' ');
 
     return (
-      <section className={`controls ${classNames}`} style={{width: `${video.width}px`}}>
+      <section className={utils.strim(`controls ${classNames}`)} style={{width: `${video.width}px`}}>
         <Slider
           success
           min={0}
@@ -154,10 +151,10 @@ export default class Video extends PureComponent {
           value={video.currentTime}
           onChange={(value) => this.handleVideoSeek(value)} />
           <div className={'buttons'}>
-            <span className={!isPlaying ? 'play' : 'pause'} onClick={this.handleClick.bind(this)} />
+            <span className={!isPlaying ? 'play' : 'pause'} onClick={(ev) => this.handleClick(ev)} />
             {/*<span className={'volume'} />*/}
             <span className={'time'}>{hhmmss(time.current)} / {hhmmss(time.total)}</span>
-            <span className={'fullscreen'} onClick={this.handleFullScreen.bind(this)} />
+            <span className={'fullscreen'} onClick={(ev) => this.handleFullScreen(ev)} />
           </div>
       </section>
     );
@@ -179,12 +176,12 @@ export default class Video extends PureComponent {
           width={width}
           height={height}
           ref={(_v) => (this.video = _v)}
-          onClick={this.handleClick.bind(this)}
-          className={`${className}`} {...rest}>
+          onClick={(ev) => this.handleClick(ev)}
+          className={className} {...rest}>
           {source}
           {children}
         </video>
-        {this.renderControls.bind(this)()}
+        {this.renderControls()}
       </section>
     );
   }

@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Input extends PureComponent {
   static displayName = 'Input'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    type: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    label: React.PropTypes.string
+    className: PropTypes.string,
+    type: PropTypes.string,
+    placeholder: PropTypes.string,
+    label: PropTypes.string
   }
 
   static defaultProps = {
@@ -28,12 +30,12 @@ export default class Input extends PureComponent {
 
     if (type && type === 'textarea') {
       return (
-        <textarea placeholder={placeholder} className={`${className}`} {...rest}>{children}</textarea>
+        <textarea placeholder={placeholder} className={utils.strim(`${className}`)} {...rest}>{children}</textarea>
       );
     }
 
     return (
-      <input type={type} placeholder={placeholder} className={`${className}`} {...rest}>{children}</input>
+      <input type={type} placeholder={placeholder} className={utils.strim(`${className}`)} {...rest}>{children}</input>
     );
   }
 

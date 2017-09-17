@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Footer extends React.Component {
   static displayName = 'Footer'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    center: React.PropTypes.bool
+    className: PropTypes.string,
+    center: PropTypes.bool
   }
 
   static defaultProps = {

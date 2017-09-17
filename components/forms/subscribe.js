@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'core/button';
 import 'sass/forms/forms';
 import 'sass/forms/subscribe';
@@ -7,10 +8,10 @@ export default class Subscribe extends React.Component {
   static displayName = 'Subscribe'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    subscribeText: React.PropTypes.string,
-    accent: React.PropTypes.bool,
-    onSubscribe: React.PropTypes.func
+    className: PropTypes.string,
+    subscribeText: PropTypes.string,
+    accent: PropTypes.bool,
+    onSubscribe: PropTypes.func
   }
 
   static defaultProps = {

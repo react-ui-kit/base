@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Container extends PureComponent {
   static displayName = 'Container'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    fluid: React.PropTypes.bool
+    className: PropTypes.string,
+    fluid: PropTypes.bool
   }
 
   static defaultProps = {
@@ -19,7 +21,7 @@ export default class Container extends PureComponent {
     const isFluid = fluid ? ' fluid' : '';
 
     return (
-      <section className={`container ${isFluid}${className}`} {...rest}>{children}</section>
+      <section className={utils.strim(`container ${isFluid}${className}`)} {...rest}>{children}</section>
     );
   }
 }

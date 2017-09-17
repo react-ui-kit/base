@@ -1,19 +1,20 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Quantity extends PureComponent {
   static displayName = 'Quantity'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    type: React.PropTypes.string,
-    min: React.PropTypes.number,
-    max: React.PropTypes.number,
-    value: React.PropTypes.number,
-    step: React.PropTypes.number,
-    editable: React.PropTypes.bool,
-    onChange: React.PropTypes.func
+    className: PropTypes.string,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    value: PropTypes.number,
+    step: PropTypes.number,
+    editable: PropTypes.bool,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
@@ -35,7 +36,7 @@ export default class Quantity extends PureComponent {
     };
   }
 
-  changeQuantity(type, {...event}) {
+  changeQuantity = (type, {...event}) => {
     let {quantity} = this.state;
     const {min, max, step, onChange} = this.props;
 
@@ -84,8 +85,8 @@ export default class Quantity extends PureComponent {
       <label className={'quantity'}>
         <button
           className={'minus'}
-          onTouchEnd={this.changeQuantity.bind(this, 'minus')}
-          onClick={this.changeQuantity.bind(this, 'minus')} />
+          onTouchEnd={(ev) => this.changeQuantity('minus', ev)}
+          onClick={(ev) => this.changeQuantity('minus', ev)} />
         <input
           type={type}
           min={min}
@@ -93,14 +94,14 @@ export default class Quantity extends PureComponent {
           step={step}
           value={quantity}
           placeholder={placeholder}
-          onChange={!onChange ? ({...event}) => { this.changeQuantity.bind(this, 'change'); } : onChange.bind(this)}
+          onChange={!onChange ? ({...event}) => this.changeQuantity('change', event) : onChange.bind(this)}
           className={`${className}`}
           readOnly={editable ? false : true}
           {...rest} />
         <button
           className={'plus'}
-          onTouchEnd={this.changeQuantity.bind(this, 'plus')}
-          onClick={this.changeQuantity.bind(this, 'plus')} />
+          onTouchEnd={(ev) => this.changeQuantity('plus', ev)}
+          onClick={(ev) => this.changeQuantity('plus', ev)} />
       </label>
     );
   }

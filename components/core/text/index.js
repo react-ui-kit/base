@@ -1,21 +1,23 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Text extends PureComponent {
   static displayName = 'Text'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    type: React.PropTypes.string,
-    uppercase: React.PropTypes.bool,
-    lowercase: React.PropTypes.bool,
-    capitalize: React.PropTypes.bool,
-    h1: React.PropTypes.bool,
-    h2: React.PropTypes.bool,
-    h3: React.PropTypes.bool,
-    h4: React.PropTypes.bool,
-    h5: React.PropTypes.bool,
-    h6: React.PropTypes.bool
+    className: PropTypes.string,
+    type: PropTypes.string,
+    uppercase: PropTypes.bool,
+    lowercase: PropTypes.bool,
+    capitalize: PropTypes.bool,
+    h1: PropTypes.bool,
+    h2: PropTypes.bool,
+    h3: PropTypes.bool,
+    h4: PropTypes.bool,
+    h5: PropTypes.bool,
+    h6: PropTypes.bool
   }
 
   static defaultProps = {
@@ -28,7 +30,7 @@ export default class Text extends PureComponent {
     const TextTag = h1 ? 'h1' : h2 ? 'h2' : h3 ? 'h3' : h4 ? 'h4' : h5 ? 'h5' : h6 ? 'h6' : `${type}`;
     const TextStyle = uppercase ? ' uppercase' : lowercase ? ' lowercase' : capitalize ? ' capitalize' : '';
     return (
-        <TextTag className={`text${TextStyle} ${className}`} {...rest}>{children}</TextTag>
+        <TextTag className={utils.strim(`text${TextStyle} ${className}`)} {...rest}>{children}</TextTag>
     );
   }
 }

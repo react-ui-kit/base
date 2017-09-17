@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'core/button';
 import 'sass/forms/forms';
 
@@ -6,11 +7,11 @@ export default class Contact extends React.Component {
   static displayName = 'Contact'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    contactText: React.PropTypes.string,
-    description: React.PropTypes.string,
-    title: React.PropTypes.string,
-    onContact: React.PropTypes.func
+    className: PropTypes.string,
+    contactText: PropTypes.string,
+    description: PropTypes.string,
+    title: PropTypes.string,
+    onContact: PropTypes.func
   }
 
   static defaultProps = {

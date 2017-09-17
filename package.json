@@ -1,10 +1,11 @@
 {
   "name": "react-ui-kit",
   "version": "1.0.6",
-  "description": "React UI Kit - base components",
+  "description": "React UI Kit - Components",
   "scripts": {
-    "start": "npm run build; webpack-dev-server -p --progress --colors --config build/webpack.config.demo.js --content-base ./demo --host 0.0.0.0 --port 8080 --open",
-    "build": "webpack --progress --colors --display-error-details --config build/webpack.config.js",
+    "prepublish": "npm run build",
+    "start": "webpack-dev-server --progress --colors --config build/webpack.config.demo.js --open",
+    "build": "webpack -p --progress --colors --display-error-details --config build/webpack.config.js",
     "lint": "eslint components/**"
   },
   "repository": {
@@ -19,31 +20,32 @@
   "main": "index.js",
   "homepage": "http://www.react-ui-kit.com",
   "dependencies": {
-    "css-loader": "^0.28.0",
-    "node-sass": "^4.5.2",
-    "postcss-loader": "^1.3.3",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "sass-loader": "^6.0.3",
-    "style-loader": "^0.16.1"
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
-    "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.2",
-    "babel-loader": "^6.4.1",
+    "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "^6.23.0",
-    "eslint": "^3.19.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-babel": "^4.1.1",
-    "eslint-plugin-react": "^6.10.3",
-    "express": "^4.15.2",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2"
+    "babel-runtime": "^6.26.0",
+    "eslint": "^4.7.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-react": "^7.3.0",
+    "express": "^4.15.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   }
 }

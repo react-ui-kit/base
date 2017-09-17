@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Checkbox extends PureComponent {
   static displayName = 'Checkbox'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    label: React.PropTypes.string,
-    type: React.PropTypes.string
+    className: PropTypes.string,
+    label: PropTypes.string,
+    type: PropTypes.string
   }
 
   static defaultProps = {
@@ -20,7 +22,7 @@ export default class Checkbox extends PureComponent {
     const {label, className, type, ...rest} = this.props;
 
     return (
-      <label className={`checkbox ${className}`}>
+      <label className={utils.strim(`checkbox ${className}`)}>
         {label}
         <input type={type} {...rest} />
         <span className={'indicator'}/>

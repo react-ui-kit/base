@@ -1,18 +1,19 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Pagination extends PureComponent {
   static displayName = 'Pagination'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    pages: React.PropTypes.number,
-    current: React.PropTypes.number,
-    controls: React.PropTypes.bool,
-    disabled: React.PropTypes.bool,
-    accent: React.PropTypes.bool,
-    primary: React.PropTypes.bool,
-    large: React.PropTypes.bool
+    className: PropTypes.string,
+    pages: PropTypes.number,
+    current: PropTypes.number,
+    controls: PropTypes.bool,
+    disabled: PropTypes.bool,
+    accent: PropTypes.bool,
+    primary: PropTypes.bool,
+    large: PropTypes.bool
   }
 
   static defaultProps = {

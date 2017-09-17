@@ -1,19 +1,20 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Progress extends PureComponent {
   static displayName = 'Progress'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    label: React.PropTypes.any,
-    value: React.PropTypes.number,
-    max: React.PropTypes.number,
-    isSlider: React.PropTypes.bool,
-    success: React.PropTypes.bool,
-    info: React.PropTypes.bool,
-    warning: React.PropTypes.bool,
-    error: React.PropTypes.bool
+    className: PropTypes.string,
+    label: PropTypes.any,
+    value: PropTypes.number,
+    max: PropTypes.number,
+    isSlider: PropTypes.bool,
+    success: PropTypes.bool,
+    info: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.bool
   }
 
   static defaultProps = {

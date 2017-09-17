@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import Progress from 'components/charts/progress';
 import './style';
 
@@ -8,17 +10,17 @@ export default class Range extends PureComponent {
   static displayName = 'Range'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    type: React.PropTypes.string,
-    name: React.PropTypes.string,
-    min: React.PropTypes.number,
-    max: React.PropTypes.number,
-    value: React.PropTypes.number,
-    showCounter: React.PropTypes.bool,
-    success: React.PropTypes.bool,
-    info: React.PropTypes.bool,
-    warning: React.PropTypes.bool,
-    error: React.PropTypes.bool
+    className: PropTypes.string,
+    type: PropTypes.string,
+    name: PropTypes.string,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    value: PropTypes.number,
+    showCounter: PropTypes.bool,
+    success: PropTypes.bool,
+    info: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.bool
   }
 
   static defaultProps = {
@@ -40,7 +42,7 @@ export default class Range extends PureComponent {
     };
   }
 
-  handleChange(type, {...ev}) {
+  handleChange = (type, {...ev}) => {
     let {rangeMinValue, rangeMaxValue} = this.state;
     const {onChange} = this.props;
     const {target} = ev;
@@ -76,7 +78,7 @@ export default class Range extends PureComponent {
     return (
       <div className={'range-wrapper'}>
         {showCounter ? <span className={'min'}>{rangeMinValue}</span> : null}
-        <Progress isSlider={true} value={rangeMinValue} max={max / 2} className={`range-min ${colors}`}>
+        <Progress isSlider={true} value={rangeMinValue} max={max / 2} className={utils.strim(`range-min ${colors}`)}>
           <input
               max={max / 2}
               step={step}
@@ -84,9 +86,9 @@ export default class Range extends PureComponent {
               name={'range-min'}
               value={rangeMinValue}
               className={`range ${colors}${className}`}
-              onChange={this.handleChange.bind(this, 'min')}/>
+              onChange={(ev) => this.handleChange('min', ev)}/>
         </Progress>
-        <Progress isSlider={true} value={rangeMaxValue} min={min} max={max} className={`range-max ${colors}`}>
+        <Progress isSlider={true} value={rangeMaxValue} min={min} max={max} className={utils.strim(`range-max ${colors}`)}>
           <input
               min={min}
               max={max}
@@ -95,7 +97,7 @@ export default class Range extends PureComponent {
               name={'range-max'}
               value={rangeMaxValue}
               className={`range ${colors}${className}`}
-              onChange={this.handleChange.bind(this, 'max')}/>
+              onChange={(ev) => this.handleChange('max', ev)}/>
         </Progress>
         {showCounter ? <span className={'max'}>{rangeMaxValue}</span> : null}
       </div>

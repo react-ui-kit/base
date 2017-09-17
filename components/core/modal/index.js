@@ -1,15 +1,17 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Modal extends PureComponent {
   static displayName = 'Modal'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    title: React.PropTypes.string,
-    open: React.PropTypes.bool,
-    onOpen: React.PropTypes.func,
-    onClose: React.PropTypes.func
+    className: PropTypes.string,
+    title: PropTypes.string,
+    open: PropTypes.bool,
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func
   }
 
   static defaultProps = {
@@ -27,7 +29,7 @@ export default class Modal extends PureComponent {
     };
   }
 
-  toggleOpen() {
+  toggleOpen = () => {
     this.setState({open: !this.state.open});
   }
 
@@ -39,7 +41,10 @@ export default class Modal extends PureComponent {
     return (
       <section className={'header'}>
         <div className={'title'}>{title}</div>
-        <span className={'close'} onClick={this.toggleOpen.bind(this)} />
+        <span
+          className={'close'}
+          onClick={() => this.toggleOpen()}
+          onTouchStart={() => this.toggleOpen()} />
       </section>
     );
   }
@@ -63,8 +68,8 @@ export default class Modal extends PureComponent {
     const {children, className, ...rest} = props;
 
     return (
-      <section className={`overlay ${open ? 'open' : ''}`}>
-        <section className={`modal ${className}`} {...rest}>
+      <section className={utils.strim(`overlay ${open ? 'open' : ''}`)}>
+        <section className={utils.strim(`modal ${className}`)} {...rest}>
           {this.renderHeader.bind(this)()}
           <section className={'content'}>{children}</section>
         </section>

@@ -1,15 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
+
 import './style';
 
-export default class Tabs extends PureComponent {
+export default class Tabs extends Component {
   static displayName = 'Tabs'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    componentUpdate: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    onTouchStart: React.PropTypes.func,
-    active: React.PropTypes.number
+    className: PropTypes.string,
+    componentUpdate: PropTypes.bool,
+    onClick: PropTypes.func,
+    onTouchStart: PropTypes.func,
+    active: PropTypes.number
   }
 
   static defaultProps = {
@@ -48,7 +51,7 @@ export default class Tabs extends PureComponent {
       return (
         <a
           href={item.props.href || '#'}
-          className={`item ${isActive}`}
+          className={utils.strim(`item ${isActive}`)}
           onClick={this.handleMenuToggle.bind(this, index)}
           onTouchStart={this.handleMenuToggle.bind(this, index)}>
           {item.props.label}
@@ -65,17 +68,21 @@ export default class Tabs extends PureComponent {
     const {children} = this.props;
     const {active} = this.state;
 
-    return React.Children.map(children, (item, index) => {
-      return React.cloneElement(item, { active: active === index });
+    return React.Children.map(children, (element, index) => {
+      return (
+        <element.type {...element.props} active={active === index}>
+          {element.props.children}
+        </element.type>
+      );
     });
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const {componentUpdate} = this.props;
-    if (componentUpdate) return componentUpdate;
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   const {componentUpdate} = this.props;
+  //   if (componentUpdate) return componentUpdate;
 
-    return this.state.active !== nextState.active;
-  }
+  //   return this.state.active !== nextState.active;
+  // }
 
   render() {
     let props = Object.assign({}, this.props);
@@ -84,7 +91,7 @@ export default class Tabs extends PureComponent {
     const {className, ...rest} = props;
 
     return (
-      <div className={`tabs ${className}`} {...rest}>
+      <div className={utils.strim(`tabs ${className}`)} {...rest}>
         {this.renderMenu.bind(this)()}
         {this.renderContent.bind(this)()}
       </div>

@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Table extends PureComponent {
   static displayName = 'Table'
 
   static propTypes = {
-    className: React.PropTypes.string
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -15,7 +17,7 @@ export default class Table extends PureComponent {
   render() {
     const {children, className, ...rest} = this.props;
     return (
-      <table className={`table ${className}`} {...rest}>
+      <table className={utils.strim(`table ${className}`)} {...rest}>
         {children}
       </table>
     );

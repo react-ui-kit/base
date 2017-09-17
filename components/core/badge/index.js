@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Badge extends PureComponent {
   static displayName = 'Badge'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    round: React.PropTypes.bool,
-    border: React.PropTypes.bool
+    className: PropTypes.string,
+    round: PropTypes.bool,
+    border: PropTypes.bool
   }
 
   static defaultProps = {
@@ -33,7 +35,7 @@ export default class Badge extends PureComponent {
     const {children, ...rest} = props;
 
     return (
-      <span className={`${this.getClassNames()}`} {...rest}>{children}</span>
+      <span className={utils.strim(`${this.getClassNames()}`)} {...rest}>{children}</span>
     );
   }
 }

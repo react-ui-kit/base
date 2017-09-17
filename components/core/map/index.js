@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Map extends PureComponent {
   static displayName = 'Map'
 
   static propTypes = {
-    className: React.PropTypes.string
+    className: PropTypes.string
   }
 
   static defaultProps = {

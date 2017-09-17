@@ -1,22 +1,24 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Block extends PureComponent {
   static displayName = 'Block'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    xs: React.PropTypes.bool,
-    sm: React.PropTypes.bool,
-    md: React.PropTypes.bool,
-    lg: React.PropTypes.bool,
-    full: React.PropTypes.bool,
-    row: React.PropTypes.bool,
-    column: React.PropTypes.bool,
-    inline: React.PropTypes.bool,
-    center: React.PropTypes.bool,
-    middle: React.PropTypes.bool,
-    card: React.PropTypes.bool
+    className: PropTypes.string,
+    xs: PropTypes.bool,
+    sm: PropTypes.bool,
+    md: PropTypes.bool,
+    lg: PropTypes.bool,
+    full: PropTypes.bool,
+    row: PropTypes.bool,
+    column: PropTypes.bool,
+    inline: PropTypes.bool,
+    center: PropTypes.bool,
+    middle: PropTypes.bool,
+    card: PropTypes.bool
   }
 
   static defaultProps = {
@@ -41,7 +43,7 @@ export default class Block extends PureComponent {
     const options = [(card ? ' card ' : null), (inline ? ' inline ' : null), (center ? ' center ' : null), (middle ? ' middle ' : null)].filter(val => val !== null).join(' '); //inline ? ' inline' : center ? ' center' : middle ? ' middle' : '';
 
     return (
-      <section className={`block ${type}${sizes}${options}${className}`} {...rest}>{children}</section>
+      <section className={utils.strim(`block ${type}${sizes}${options}${className}`)} {...rest}>{children}</section>
     );
   }
 }

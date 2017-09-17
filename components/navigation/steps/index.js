@@ -1,17 +1,18 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Steps extends PureComponent {
   static displayName = 'Steps'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    steps: React.PropTypes.number,
-    current: React.PropTypes.number,
-    accent: React.PropTypes.bool,
-    primary: React.PropTypes.bool,
-    large: React.PropTypes.bool,
-    controls: React.PropTypes.bool
+    className: PropTypes.string,
+    steps: PropTypes.number,
+    current: PropTypes.number,
+    accent: PropTypes.bool,
+    primary: PropTypes.bool,
+    large: PropTypes.bool,
+    controls: PropTypes.bool
   }
 
   static defaultProps = {

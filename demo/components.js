@@ -8,7 +8,7 @@ import {
   Badge, Button, Checkbox, DropDown, Input, Modal,
   Quantity, Radio, Slider, Range, Switch, Tab, Table, Tabs, Tag, Video, Text,
   Progress, Menu, Pagination
-} from '../';
+} from '../components/';
 
 // import Progress from 'components/charts/progress';
 // import Menu from 'components/navigation/menu';

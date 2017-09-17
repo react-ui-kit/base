@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Button extends PureComponent {
   static displayName = 'Button'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    type: React.PropTypes.string
+    className: PropTypes.string,
+    type: PropTypes.string
   }
 
   static defaultProps = {
@@ -18,7 +20,7 @@ export default class Button extends PureComponent {
     const {children, type, className, ...rest} = this.props;
 
     return (
-      <button type={type} className={`button ${className}`} {...rest}>
+      <button type={type} className={utils.strim(`button ${className}`)} {...rest}>
         {children}
       </button>
     );

@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Tab extends PureComponent {
   static displayName = 'Tab'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    active: React.PropTypes.bool
+    className: PropTypes.string,
+    active: PropTypes.bool
   }
 
   static defaultProps = {
@@ -19,8 +21,8 @@ export default class Tab extends PureComponent {
     const isActive = active ? 'active' : '';
 
     return (
-      <div className={`tab ${isActive}${className}`} {...rest}>
-        {children}
+      <div className={utils.strim(`tab ${isActive}${className}`)} {...rest}>
+        {isActive ? children : null}
       </div>
     );
   }

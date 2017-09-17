@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Bar extends PureComponent {
   static displayName = 'Bar'
 
   static propTypes = {
-    className: React.PropTypes.string
+    className: PropTypes.string
   };
 
   constructor(props) {

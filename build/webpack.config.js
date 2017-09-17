@@ -67,11 +67,12 @@ const config = {
             {
               loader: 'postcss-loader',
               options: {
-                  plugins: () => [
-                      autoprefixer({
-                        browsers: ['last 2 versions']
-                      })
-                  ]
+                sourceMap: true,
+                plugins: () => [
+                    autoprefixer({
+                      browsers: ['last 2 versions']
+                    })
+                ]
               }
             },
             {
@@ -131,7 +132,7 @@ const config = {
   ],
   resolve: {
     extensions: ['.js', '.scss'],
-    modules: [path.join(__dirname), "node_modules", ".", "lib", "components", "sass"]
+    modules: [path.join(__dirname), "node_modules", ".", "lib", "components", "sass", "utils"]
   }
 }
 

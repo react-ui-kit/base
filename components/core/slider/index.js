@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import Progress from 'components/charts/progress';
 import './style';
 
@@ -6,17 +8,17 @@ export default class Slider extends PureComponent {
   static displayName = 'Slider'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    type: React.PropTypes.string,
-    name: React.PropTypes.string,
-    min: React.PropTypes.number,
-    max: React.PropTypes.number,
-    value: React.PropTypes.number,
-    showCounter: React.PropTypes.bool,
-    success: React.PropTypes.bool,
-    info: React.PropTypes.bool,
-    warning: React.PropTypes.bool,
-    error: React.PropTypes.bool
+    className: PropTypes.string,
+    type: PropTypes.string,
+    name: PropTypes.string,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    value: PropTypes.number,
+    showCounter: PropTypes.bool,
+    success: PropTypes.bool,
+    info: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.bool
   }
 
   static defaultProps = {
@@ -67,15 +69,15 @@ export default class Slider extends PureComponent {
     return (
       <div className={'slider-wrapper'}>
         {showCounter ? <span className={'min'}>{min}</span> : null}
-        <Progress isSlider value={sliderValue} max={max} className={`${colors}`} {...rest}>
+        <Progress isSlider value={sliderValue} max={max} className={utils.strim(colors)} {...rest}>
           <input
             max={max}
             step={step}
             type={type}
             name={name}
             value={sliderValue}
-            className={`slider ${colors}${className}`}
-            onChange={this.handleChange.bind(this)}/>
+            className={utils.strim(`slider ${colors}${className}`)}
+            onChange={(ev) => this.handleChange(ev)}/>
         </Progress>
         {showCounter ? <span className={'max'}>{sliderValue}</span> : null}
       </div>

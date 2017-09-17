@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Cart extends React.Component {
   static displayName = 'Cart'
 
   static propTypes = {
-    className: React.PropTypes.string
+    className: PropTypes.string
   }
 
   render() {

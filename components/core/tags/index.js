@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Tag extends PureComponent {
   static displayName = 'Tags'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    label: React.PropTypes.string,
-    accent: React.PropTypes.bool,
-    primary: React.PropTypes.bool
+    className: PropTypes.string,
+    label: PropTypes.string,
+    accent: PropTypes.bool,
+    primary: PropTypes.bool
   }
 
   static defaultProps = {
@@ -22,7 +24,7 @@ export default class Tag extends PureComponent {
     const {className, accent, primary, label, ...rest} = this.props;
     const colors = accent ? 'accent ' : primary ? 'primary ' : '';
     return (
-      <label className={`tag ${colors}${className}`} {...rest}>
+      <label className={utils.strim(`tag ${colors}${className}`)} {...rest}>
         <span className={'text'}>{label}</span>
       </label>
     );

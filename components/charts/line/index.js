@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Line extends PureComponent {
   static displayName = 'Line'
 
   static propTypes = {
-    className: React.PropTypes.string
+    className: PropTypes.string
   };
 
   constructor(props) {

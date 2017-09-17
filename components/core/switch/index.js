@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import utils from 'utils';
 import './style';
 
 export default class Switch extends PureComponent {
   static displayName = 'Switch'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    onLabel: React.PropTypes.string,
-    offLabel: React.PropTypes.string,
-    type: React.PropTypes.string
+    className: PropTypes.string,
+    onLabel: PropTypes.string,
+    offLabel: PropTypes.string,
+    type: PropTypes.string
   }
 
   static defaultProps = {
@@ -22,7 +24,7 @@ export default class Switch extends PureComponent {
     const {onLabel, offLabel, className, type, ...rest} = this.props;
 
     return (
-      <label className={`switch ${className}`}>
+      <label className={utils.strim(`switch ${className}`)}>
         {offLabel}
         <input type={type} {...rest} />
         <span className={'indicator'}/>

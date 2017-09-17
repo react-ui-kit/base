@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 const MenuItem = props => {
@@ -12,10 +13,10 @@ export default class Menu extends PureComponent {
   static displayName = 'Menu'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    open: React.PropTypes.bool,
-    submenu: React.PropTypes.bool,
-    title: React.PropTypes.string
+    className: PropTypes.string,
+    open: PropTypes.bool,
+    submenu: PropTypes.bool,
+    title: PropTypes.string
   }
 
   static defaultProps = {

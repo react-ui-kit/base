@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class Horizontal extends PureComponent {
   static displayName = 'Horizontal'
 
   static propTypes = {
-    className: React.PropTypes.string
+    className: PropTypes.string
   };
 
   constructor(props) {

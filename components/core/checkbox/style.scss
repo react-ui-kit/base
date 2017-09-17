@@ -4,11 +4,12 @@
 .checkbox
 	position: relative
 	cursor: pointer
+	user-select: none
 	font-size: 14px
 	padding-left: 26px
 	padding-right: 4px
 	&.inline
-		display: inline-block
+		display: inline-flex
 	.indicator
 		position: absolute
 		top: 2px

@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style';
 
 export default class List extends React.Component {
   static displayName = 'List'
 
   static propTypes = {
-    className: React.PropTypes.string,
-    center: React.PropTypes.bool,
-    right: React.PropTypes.bool
+    className: PropTypes.string,
+    center: PropTypes.bool,
+    right: PropTypes.bool
   }
 
   static defaultProps = {
