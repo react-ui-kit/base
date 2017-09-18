@@ -26,7 +26,7 @@
     &.fluid
         display: flex
         flex-wrap: wrap
+    .start, .center, .end
+        display: flex
+        flex-direction: column
 
-.start, .center, .end
-    display: flex
-    flex-direction: column

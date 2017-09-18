@@ -1,0 +1,24 @@
+@import "sass/variables";
+
+.panels
+    display: flex
+    height: inherit
+    width: inherit
+    margin: 8px
+
+    flex-wrap: wrap
+    flex-direction: row
+    align-content: space-between
+
+    &.column
+        flex-direction: column
+        align-content: normal
+        align-items: stretch
+        overflow: hidden
+        overflow-x: scroll
+        > .panel
+            align-self: stretch
+            flex-basis: 0%
+
+    &.center
+        align-content: center

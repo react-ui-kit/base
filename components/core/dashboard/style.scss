@@ -1,0 +1,10 @@
+@import "sass/variables";
+
+.dashboard
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: column
+    height: 100%
+    max-width: 100%
+    &.row
+    	flex-direction: row
