@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>React-UI-Kit.com - Examples</title>
+  <link rel="stylesheet" type="text/css" href="/dist/examples.css">
+  <style type="text/css">
+    @import 'https://fonts.googleapis.com/css?family=Heebo:300';
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0; padding: 0; outline: 0;
+      font-family: 'Heebo', sans-serif;
+      font-size: 13px;
+    }
+    .app {
+      height: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="app"></div>
+  <script type="text/javascript">
+    var reactScript = document.createElement("script");
+    reactScript.src = '/dist/examples.js?v=' + (new Date().getTime()/1000|0)
+    document.body.appendChild(reactScript);
+  </script>
+</body>
+</html>

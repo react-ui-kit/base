@@ -3,6 +3,9 @@ import Block from './block';
 import Button from './button';
 import Checkbox from './checkbox';
 import Container from './container';
+import Dashboard from './dashboard';
+import Panels from './panels';
+import Panel from './panel';
 import DropDown from './dropdown';
 import Input from './input';
 import Modal from './modal';
@@ -24,6 +27,9 @@ module.exports = {
   Button: Button,
   Checkbox: Checkbox,
   Container: Container,
+  Dashboard: Dashboard,
+  Panels: Panels,
+  Panel: Panel,
   DropDown: DropDown,
   Input: Input,
   Modal: Modal,
